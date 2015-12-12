@@ -1,4 +1,5 @@
-/storage
+/storage/app
+/storage/app=-demo
 /vendor
 /node_modules
 Homestead.yaml
