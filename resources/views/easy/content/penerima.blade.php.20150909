@@ -1,0 +1,270 @@
+<?php 
+?>
+<div class="easyui-layout" id="penerima" data-options="fit:true">
+			<div data-options="region:'center'">
+				<div id="tt" class="easyui-tabs" fit="true">
+				<div title="Daftar Penerima">
+				
+				<table id="contentCenter" fit="true" style="widht: 10000px;" >
+				</table>
+				</div>
+				</div>
+			</div>
+			<div data-options="region:'south',split:true" style="height:200px;"> 
+				<div class="easyui-tabs" id="tabX"  data-options="fit:true">
+					<!-- form ================================================= -->
+					<div title="Form Data Unit Kerj" id="formBottom"  style="padding:3px 0px 0px 10px"  data-options="">
+							<form id="F-INPUT" method="post">
+							{!! csrf_field() !!}
+								<input type="hidden" name="id" id="id">
+								<div id="ForInput" style="width:70%; display:inline-block; float:left; ">
+								
+									<div style="padding: 2px 0px 10px 10px;"> 
+										<label style="display:inline-block; width: 20%"for="nama_singkat">Nama Penerima </label>
+										
+										<input class="easyui-validatebox textbox" type="text" name="nama_penerima" data-options="validType:'',required:true" />
+									</div>
+								</div>
+
+								<div id="ForButton" style="padding: 2px 0px 10px 10px; display:inline-block; padding:0px 20px 0px 0px;">
+
+							<a id="simpan" href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-floppy-o'">Simpan</a>
+							<a id="update" href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-check-square-o'" >update</a>
+							<br>
+							<br>
+								<a id="close" href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-close'">Close</a>
+									<!-- <input type="button" value="Simpan"> -->
+									<!-- <input type="button" value="Close"> -->
+								</div>
+
+							</form>
+
+
+
+					</div>
+
+				</div>
+
+
+			</div>
+		</div>
+
+
+		<!-- datagrid toolbarrrr ================================================== -->
+		<div id="tb" style="padding:5px;height:auto">
+			<div style="margin-bottom:5px">
+				<a href="#" id="Ftambah"class="easyui-linkbutton" iconCls="fa fa-plus " plain="true" onclick="javascript:FormTambah(this);"> Tambah </a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-check-square-o" plain="true" onclick="javascript:AksiKoreksi();"> Koreksi</a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-refresh" plain="true" onclick="javascript:Refresh();" > Refresh</a>
+
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-close	" plain="true" onclick="javascript:AksiHapus();" > Hapus</a>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+		// $.extend($.fn.linkbutton.methods, {
+		//     disable: function(jq, newposition){
+		//     	console.log(jq);
+		//     	// alert('linkbuton disable')
+		//             // $(this).linkbutton('disable');
+		//         // return jq.each(function(){
+		//     	// jq.linkbutton('disable')
+		//         // });
+		//     }
+		// });
+/* Load Grid Handling ===============================================================================*/
+	 						
+		$('#contentCenter').datagrid(
+		{
+			url:'{{route('penerima.data')}}',
+			// title:'Daftar Unit Kerja',
+			toolbar: '#tb',
+			columns:[[
+		// {field:'productid',title:'No',width:200},
+		{field:'nama_penerima',title:'Penerima ',width:20},
+		// {field:'nama_unit_kerja',title:'Nama Unit Kerja',width:20},
+		// {field:'nama_unit_kerja',title:'',width:20},
+		// {field:'nama_singkat_unit_kerja',title:'Nama Singkat Unit Kerja ',width:20}
+		// {field:'productname',title:'Singkatan'}
+		]],
+		// height: 200,
+		pagination : true,
+		// remoteSort:true,
+		rownumbers : true,
+		singleSelect:true,
+		striped:true, 
+		collapsible:true,
+		autoRowHeight:true,
+		fitColumns:true
+		// scrollbarSize:10,
+		// pageSize:10
+	});
+
+	// $('#cc_skpd, #cc_skpd2').combobox({
+	// 	url:'combobox_data.json',
+	// 	valueField:'id',
+	// 	textField:'text',
+	// 	onSelect: function(rec){
+	// 		alert('selected')
+	// 		// $.get(url,function(data) {
+	// 		// 	optional stuff to do after success 
+				
+	// 		// });
+	// // var url = 'get_data2.php?id='+rec.id;
+	// // $('#cc2').combobox('reload', url);
+	// 	}
+
+	// });
+			$('#content-x').find('.easyui-layout').layout()
+			$('#content-x').find('.easyui-linkbutton').linkbutton()
+			$('#content-x').find('.easyui-tabs').tabs()
+			$('#penerima').layout('collapse','south');
+
+			// $('#penerima').layout();
+/* Action Handling ======================================================================================*/
+	function Refresh (argument) {
+					$('#contentCenter').datagrid('load',{}); 
+	}
+	function FormTambah(ini) {
+			// $('#penerima').layout('expand','south');
+			$(ini).linkbutton('disable');
+			$.get('{{route('token')}}', function(data) {
+					// $(ini).linkbutton('enable');
+				    $('.easyui-validatebox').validatebox({required: true, width:100 });
+						$('#F-INPUT').form('clear');
+						$("input:hidden[name=_token]").val(data);
+				 	customTitleTab('tabX','--: Tambah Data Penerima Baru :--')
+
+					$('#penerima').layout('expand','south');
+					if ($('#F-INPUT').find("input[name='_method']").length >= 1) {
+						$('#F-INPUT').find("input[name='_method']").remove();
+					};
+					$('#update').hide();
+					$('#simpan').show();
+			});
+		
+	}
+	function AksiHapus() {
+		var row = $('#contentCenter').datagrid('getSelected');
+		
+		if (row){
+		 	$.messager.confirm('Konfirmasi ', 'Apakah Anda ingin menghapus data '+row.nama_penerima, function(r){
+				if (r)
+				{
+				 	$.post('{{url('penerima')}}/'+row.id, { _method: 'DELETE' }, function(data, textStatus, xhr) {
+				 		// alert(data)
+					 		if (textStatus=='success') {
+					 			$.messager.show({  
+					 			title: 'Status',  
+					 			msg: data  
+					 			});	
+								$('#contentCenter').datagrid('reload');
+
+					 		}
+					 		else{
+				 				$.messager.show({  
+				 				title: 'Gagal !',  
+				 				msg: 'Terjadi Kesalahan !'  
+				 				});		
+								$('#contentCenter').datagrid('re load');
+					 		}
+					 	}).fail(function(data) {
+					 	
+					 		$.messager.show({  
+					 		title: 'Gagal !',  
+					 		msg: 'Kegagalan koneksi , periksa lagi jaringan anda  !'  
+					 		});	
+								$('#contentCenter').datagrid('reload');
+						    // alert( "error" );
+						  });
+			 	}
+			});	
+		    // $.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+		}
+		else{
+			$.messager.alert('Info', 'Anda harus memilih baris di tabel terlebih dulu', 'info');
+		}
+		
+	}
+	function  AksiKoreksi(argument) {
+		var row = $('#contentCenter').datagrid('getSelected');
+		// var url='google.com'
+		if (row){
+			 $('#update').show();
+		 	$('#simpan').hide();
+			 // $('#F-INPUT').form('load',row);
+			 $('#F-INPUT').form('load','{{url('penerima')}}/'+row.id+'/edit');
+				 	customTitleTab('tabX','Koreksi Data Penerima '+row.nama_penerima)
+
+			 $('#penerima').layout('expand','south');
+			 if ($('#F-INPUT').find("input[name='_method']").length <= 1) {
+			 	$('#F-INPUT').append('<input type="hidden" name="_method" value="PATCH">');
+			 };
+		}
+		else{
+			$.messager.alert('Info', 'Anda harus memilih baris di tabel terlebih dulu', 'info');
+		}
+	}
+			
+	
+
+/* handle submit form================================================================================================*/
+
+	$(function(){
+
+
+	    $('#close').bind('click', function(){
+	    	// alert('close')
+					$('#penerima').layout('collapse','south');
+	        // alert('easyui');
+	    });
+	    $('#simpan').bind('click', function(){
+
+	        	$('#F-INPUT').form('submit',{  url:'{{route('penerima.store')}}',
+	        							success: function(result){
+	        									FormTambah()
+	        								if (result.code ==  200 ){
+	        									$.messager.show({  
+	        										title: 'Status',  
+	        										msg: 'Data SKPD Berhasil Dimasukkan !'  
+	        									});
+	        									$('#F-INPUT').form('clear');
+	        									// $('#this').dialog('close')
+	        									$('#contentCenter').datagrid('reload');
+	        								}
+	        								else {
+	        									$('#contentCenter').datagrid('reload');
+	        									$.messager.show({  
+	        										title: 'Status',  
+	        										msg: result  
+	        									});
+	        								} 
+	        							} 
+	        						});
+	    });
+	    $('#update').bind('click', function(){
+	    			var row = $('#contentCenter').datagrid('getSelected');
+	            	$('#F-INPUT').form('submit',{ url:'{{url('penerima')}}/'+$('#id').val(), 
+	            							success: function(result){
+
+	            								if (result.code ==  200 ){
+	            									$.messager.show({  
+	            										title: 'Status',  
+	            										msg: 'Data SKPD Berhasil Dimasukkan !'  
+	            									});
+	            									// $('#this').dialog('close')
+	            									$('#contentCenter').datagrid('reload');
+	            								}
+	            								else {
+	            									$('#contentCenter').datagrid('reload');
+	            									$.messager.show({  
+	            										title: 'Status',  
+	            										msg: result  
+	            									});
+	            								} 
+	            							} 
+	            						});
+	        });
+
+	});
+</script>

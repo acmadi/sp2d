@@ -1,0 +1,31 @@
+login :
+	+ logo 			: kota mojokerto
+	+ nama instansi 	: DPPKA Kota Mojokerto
+	+ url register	: dihapus
+	+ login gagal		: ajax modal
+	+ passwordnya		: apa>>>???
+
+Data Master :
+	SKPD :
+		+ Form Add 	: setelah add field di kosongkan, biar tidak dikira ngedit		
+		Koreksi		: judulnya bukan form add, tapi koreksi / edit
+		+ Delete		: dikasih konfirmasi, apakah mau hapus atau batal
+	Unit Kerja :
+		+ Form Add 	: harusnya field nama skpd ngga milih lagi, tapi ngambil state dari atas
+		+  Form Add 	: sehabis nyimpen di reset fieldnya
+		+ Delete 		: konfirmasi
+	Penerima
+		+ Form Add 	: reset setelah add
+		+ Delete 		: konfirmasi???
+	Jenis SPPD
+		Podo sama same with above wkwkwkkw
+
+/////////////////////
+
+dokumen SKPD
+	Daftar Dok SPPSD
+		Add :
+			+ Jumlah Real SPM harus positif
+			+ Jumlah SPM : event change 
+		+ Edit 		:tidak bisa
+		+ Hapus : confirmasi

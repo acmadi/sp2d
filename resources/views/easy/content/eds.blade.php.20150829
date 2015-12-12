@@ -1,0 +1,504 @@
+<style type="text/css">
+.drop-area{
+  width:100px;
+  height:25px;
+  /*border: 1px solid #999;*/
+  text-align: center;
+  
+  cursor:pointer;
+}
+#thumbnail img{
+  margin:auto;
+  width:100%;
+  height:100%;
+  margin:5px;
+  z-index:1;
+}
+#thumbnail {
+/*border: solid red;*/
+width:700px;
+height:700px;
+position : absolute;
+top:0px;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+z-index:1;
+}
+canvas{
+  border:1px solid red;
+}
+#upload{
+     padding:100px; margin:auto; z-index:200;
+}
+#upload a{
+    display: inline-block;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 300;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    z-index: 500;
+}
+</style>
+<script type="text/javascript">
+jQuery(function($){
+    $.extend($.fn.filebox.defaults, {
+        onChange: function(newValue,oldValue){
+
+        var fileDiv = document.getElementById("upload");
+        // console.log(this.files);
+        // var files = this.files
+        // showThumbnail(files)
+        var dt = newValue.dataTransfer;
+        var files = dt.files;
+
+        showThumbnail(files)
+            console.log(newValue);
+            // return jq.each(function(){
+            //     $(this).dialog('move', newposition);
+            // });
+        }
+    });
+function removeAllChildrenFromNode (node) {
+  var shell;
+  // do not copy the contents
+  shell = node.cloneNode(false);
+
+  if (node.parentNode) {
+    node.parentNode.replaceChild(shell, node);
+  }
+
+  return shell;
+}
+
+var fileDiv = document.getElementById("upload");
+var fileInput = document.getElementById("upload-image");
+// console.log(fileInput);
+// console.log(fileInput);
+fileInput.addEventListener("change",function(e){
+        console.log(this.files);
+
+  var files = this.files
+  showThumbnail(files)
+},false)
+
+fileDiv.addEventListener("click",function(e){
+    // console.log('fileDiv click');
+  $(fileInput).show().focus().click().hide();
+  console.log($(fileInput).val())
+
+  e.preventDefault();
+},false)
+
+fileDiv.addEventListener("dragenter",function(e){
+    // console.log('fileDiv dragenter');
+  e.stopPropagation();
+  e.preventDefault();
+},false);
+
+fileDiv.addEventListener("dragover",function(e){
+    // console.log('fileDiv dragover');
+  e.stopPropagation();
+  e.preventDefault();
+},false);
+
+fileDiv.addEventListener("drop",function(e){
+    // console.log('fileDiv drop');
+  e.stopPropagation();
+  e.preventDefault();
+
+  var dt = e.dataTransfer;
+  var files = dt.files;
+
+  showThumbnail(files)
+},false);
+
+function showThumbnail(files){
+  for(var i=0;i<files.length;i++){
+    var file = files[i]
+    var imageType = /image.*/
+    if(!file.type.match(imageType)){
+      console.log("Not an Image");
+      continue;
+    }
+
+    var myNode = document.getElementById('thumbnail');
+    myNode = removeAllChildrenFromNode( myNode );
+        var image = document.createElement("img");
+    // var image = document.createElement("img");
+    // image.classList.add("")
+    var thumbnail = document.getElementById("thumbnail");
+    image.file = file;
+    thumbnail.appendChild(image)
+
+    var reader = new FileReader()
+    reader.onload = (function(aImg){
+      return function(e){
+        aImg.src = e.target.result;
+      };
+    }(image))
+    var ret = reader.readAsDataURL(file);
+    var canvas = document.createElement("canvas");
+    ctx = canvas.getContext("2d");
+    image.onload= function(){
+      ctx.drawImage(image,100,100)
+    }
+  }
+}
+})
+</script>
+
+<style type="text/css">
+	#F-INPUT div#ForInput{
+	width:100%; display:inline-block; float:left; position:relative; top:50px;
+	}
+	#F-INPUT div#ForInput label{
+		display:inline-block; width:20%;
+	}
+	#F-INPUT div#ForInput div{
+	padding: 2px 0px 10px 10px;
+	}
+	#F-INPUT div#ForInput input.easyui-validatebox{
+		width:20%;
+	}
+
+
+       main {
+           border: medium solid red;
+            padding-top: 100px;
+            position: relative;
+       }
+
+       .center {
+           position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: solid red;
+       }
+    canvas {
+      font-family: 'pixel';
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      border: 1px solid black;
+      cursor: none;
+      outline: none;
+    }
+</style>
+
+ <div class="easyui-layout" data-options="fit:true">
+ 	<div data-options="region:'center',title:' ',split:true">
+ 	<div class="easyui-tabs" fit="true" >
+ 			<div title="Form Data Unit Kerj" id="formBottom"   style="padding:3px 0px 0px 10px"  data-options="">
+ 				<div id="formBottom" style=""  >
+ 					<form id="F-INPUT" method="post"  enctype="multipart/form-data" >
+          {!! csrf_field() !!}
+						<input type="hidden" name="id" id="id">
+ 						<div id="ForInput" fit="true"  >
+                           <div style="display:none;">
+                                <!-- <label for="filex" >file  </label> -->
+
+                                <!-- : <input id="filex"  name="gambar" type="text" style="width:300px"> -->
+                                <input type="file"  name="gambar" style="width: 100%; height:100%;display:none;" id="upload-image" multiple="multiple">
+                            </div>
+ 							<div>
+ 								<label for="nama_skpd" >Tahun  </label>
+
+ 						 		: <input class="easyui-validatebox " name="tahun" id="tahun" data-options="required:true"  />
+ 							</div>
+ 							<div >
+ 								<label for="nama_skpd" >No SPPD  </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_sppd" id="no_sppd" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tanggal SP2D </label>
+
+ 								: <input   type="text" required="required"  	 name="tgl_sppd" id="tgl_sppd">
+ 								<label  for="nama_singkat">
+                                Jenis SP2D </label>
+                                :<input id="jenis_sppd_id" name="jenis_sppd_id" value="" width:20%>
+        
+ 								<!-- : <input  name="jenis_sppd_id" id="jenis_sppd_id" class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Nama SPKD  </label>
+                                :<input id="skpd_id" name="skpd_id" value="" width:20%>
+
+ 							<!-- : <input  name="skpd_id" id="skpd_id" class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Penerima SP2D  </label>
+                                :<input id="penerima_id" name="penerima_id" value="" width:20%>
+
+ 								<!-- : <input  name="penerima" id="penerima_id"  class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Keperluan </label>: 
+ 								<textarea cols="40" name="keperluan" id="keperluan" rows=""></textarea>
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. SPM  </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_spm" id="no_spm" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. SPM </label>
+								: <input  name="tgl_spm" id="tgl_spm" type="text"  required="required" >
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">SMP Diajukan : </label>
+ 								: <input class="easyui-validatebox" type="text" name="spm_diajukan" id="spm_diajukan" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Potongan : </label>
+ 								: <input class="easyui-validatebox" type="text" name="potongan" id="potongan" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">SPM Sebenarnya: </label>
+ 								: <input class="easyui-validatebox" type="text" name="spm_benar" id="spm_benar" data-options="required:true,readonly:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. Pengantar : </label>
+ 								: <input    name="tgl_pengantar" id="tgl_pengantar" >
+ 								<label for="nama_singkat">Tgl. Diterima : </label>
+ 								<!-- : <input class="easyui-validatebox" type="text" name="tgl_diterima" id="tgl_diterima" data-options="required:true"  /> -->
+ 								: <input    name="tgl_diterima" id="tgl_diterima" >
+
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. Agenda : </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_agenda" id="no_agenda" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. acc KASI : </label>
+								: <input  name="tgl_acc_kasi" id="tgl_acc_kasi"  >
+								<label for="nama_singkat">Tgl. acc KABID : </label>
+								: <input  name="tgl_acc_kabid" id="tgl_acc_kabid" >
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. acc KADIS : </label>
+								: <input  name="tgl_acc_kadis" id="tgl_acc_kadis"  >
+ 							</div>
+ 							
+ 							<div > 
+ 								<label for="nama_singkat">Keterangan  </label>
+ 								: <textarea cols="40" name="keterangan" id="keterangan" rows=""></textarea>
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Nama Dokumen : </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="nama_dokumen" id="nama_dokumen" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. Referensi : </label>
+ 								: <input  name="tgl_referensi" id="tgl_referensi"  >
+ 								<label for="nama_singkat">No. Rak : </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_rak" id="no_rak" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. Boks : </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_boks" id="no_boks" data-options="required:true"  />
+ 								<label for="nama_singkat">No. Map : </label>
+ 								: <input class="easyui-validatebox textbox" type="text" name="no_map" id="no_map" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat"> </label>
+ 								: <input class="easyui-validatebox" type="checkbox" name="tambah" id="tambah" data-options="required:true" /> Tambah Dokumen Lagi
+ 							</div>
+	 						<!-- Button============================================== -->
+ 						</div>
+	 						<div  style="background: none repeat scroll 0 0 #e0ecff;
+							    display: inline-block;
+							    height: 20px;
+							    left: 0;
+							    margin: 1px;
+							    padding: 10px;
+							    position: absolute;
+							    top: 58px;
+							    width: 94%;">
+	 							<button  id="simpan" value="Simpan"><i class="fa fa-floppy-o"></i> Simpan  </button>
+	 							<button  id="update" value="Update"><i class="fa fa-check-square-o"></i> Update  </button>
+	 							<button  id="reset" value="reset"><i class="fa fa-refresh"></i> reset  </button>
+	 							<hr>
+	 						</div>
+
+
+ 					</form>
+
+ 				</div>
+
+
+ 			</div>
+
+ 		</div>
+
+ 	</div>
+ 	<div data-options="region:'east',title:' ',split:true" style="width:50%">
+        <!-- <input type="file" style="display:none; width: 100%; height:100%;" id="upload-image" multiple="multiple"></input> -->
+        <div id="upload" style="" class="drop-area">
+      <i class="fa fa-file-image-o fa-6" style=" font-size: 100px;  color: rgb(0,0,255);"></i><br>
+        <!-- <a>   Klik disini untuk menambakan gambar</a> -->
+
+            <div id="thumbnail" style="display:none">
+
+
+              {{ $image or ''}}
+            
+              
+            </div>
+
+        </div>
+    
+ 	</div>
+ </div>
+
+
+<script>
+
+function submitForm(){
+$('#entryDokSPPD').form('submit');
+}
+function clearForm(){
+$('#entryDokSPPD').form('clear');
+}
+/* date box ==========================================*/
+    $('#tgl_sppd , #tgl_spm , #tgl_pengantar , #tgl_diterima , #tgl_acc_kasi , #tgl_acc_kabid , #tgl_acc_kadis , #tgl_referensi').datebox({required:true
+    });
+    $('#spm_diajukan, #potongan, #spm_benar').numberbox({
+    precision:2
+    ,groupSeparator:'.'
+    ,decimalSeparator:','
+    ,prefix:'Rp. '
+});
+	var d = new Date();
+	var n = d.getFullYear(); 
+    $('#tahun').numberbox({
+        min:1945,
+        max:n,
+        precision:0
+    });
+    // $('#jenis_sppd_id').combobox({
+    //     url:'{{route('suplay.jenis-sppd.combobox')}}',
+    //     // method:'get',
+    //     valueField:'id',
+    //     textField:'nama_jenis_sppd',
+    //     onLoadSuccess:function  (argument) {
+          
+    //     }
+    // });
+  
+    // $('#skpd_id').combobox({
+    //     url:'{{route('suplay.skpd.combobox')}}',
+    //     // method:'get',
+    //     valueField:'id',
+    //     textField:'nama_skpd'
+    // });
+    // $('#penerima_id').combobox({
+    //     url:'{{route('suplay.penerima.combobox')}}',
+    //     // method:'get',
+    //     valueField:'id',
+    //     textField:'nama_penerima'
+    // });
+$('#potongan').numberbox({
+    onChange:function  (newx,old) {
+        var ajukan=$('#spm_diajukan').numberbox('getValue');
+        var jumlah = parseFloat(ajukan) - parseFloat(newx); 
+        $('#spm_benar').numberbox('setValue', jumlah);
+    }
+
+})
+    $(function(){
+       
+        $('#update').bind('click', function(){
+            console.log('update');
+          // $('#F-INPUT').form('disableValidation');
+            // $('#uploadx').fileupload('send', data);
+            // $('#fileupload').fileupload('send', {files: 'filesList'})
+                    var row = $('#contentCenter').datagrid('getSelected');
+                // console.log($('#id').val());return false;
+                    $('#F-INPUT').form('submit',{ url:'{{url('dokumens')}}/'+$('#id').val(),
+                                            onSubmit: function(param){
+                                            // param.uploadx = $('#uploadx').serializeArray();
+                                            // param.fileupload = $('#fileupload').val();
+                                            // param.p2 = 'value2';
+                                            },
+                                            success: function(result){
+
+                                                if (result.code ==  200 ){
+                                                    $.messager.show({  
+                                                        title: 'Status',  
+                                                        msg: 'Data SKPD Berhasil Dimasukkan !'  
+                                                    });
+                                                    // $('#this').dialog('close')
+                                                    $('#contentCenter').datagrid('reload');
+                                                }
+                                                else {
+                                                    $('#contentCenter').datagrid('reload');
+                                                    $.messager.show({  
+                                                        title: 'Status',  
+                                                        msg: result  
+                                                    });
+                                                } 
+                                            } 
+                                        });
+            });
+        $('#simpan').bind('click', function(){
+        	console.log('update');
+          // $('#F-INPUT').form('disableValidation');
+        			var row = $('#contentCenter').datagrid('getSelected');
+                	$('#F-INPUT').form('submit',{ url:'{{route('dokumens.store')}}',
+                                            onSubmit: function(param){
+                                            // param.uploadx = $('#uploadx').serializeArray();
+                                            // param.fileupload = $('#fileupload').val();
+                                            // param.p2 = 'value2';
+                                            },
+                							success: function(result){
+
+                								if (result.code ==  200 ){
+                									$.messager.show({  
+                										title: 'Status',  
+                										msg: 'Data SKPD Berhasil Dimasukkan !'  
+                									});
+                									// $('#this').dialog('close')
+                									$('#contentCenter').datagrid('reload');
+                								}
+                								else {
+                									$('#contentCenter').datagrid('reload');
+                									$.messager.show({  
+                										title: 'Status',  
+                										msg: result  
+                									});
+                								} 
+                							} 
+                						});
+            });
+
+    });
+</script>
+
+<script>
+/*jslint unparam: true, regexp: true */
+/*global window, $ */
+
+
+$('#gambar').filebox({
+buttonText: 'Choose File',
+buttonAlign: 'left'
+})
+
+$.extend($.fn.filebox.defaults, {
+    onChange: function(newValue,oldValue){
+        console.log(oldValue);
+        // return jq.each(function(){
+        //     $(this).dialog('move', newposition);
+        // });
+    }
+});
+</script>

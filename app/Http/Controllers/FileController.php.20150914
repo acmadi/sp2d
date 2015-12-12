@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+use App\File;
+
+class FileController extends Controller
+{
+	public function get($dir,$filename){
+	
+		// $entry = File::where('filename', '=', $filename)->firstOrFail();
+		// $file = \Storage::disk('local')->get($entry->filename);
+ 		
+
+		// // return (new \Response($file, 200))
+  //             // ->header('Content-Type', $entry->mime);
+		// return response($file,200)
+  //           ->header('Content-Type', $entry->mime);
+
+		// ===============================================================================================
+				// $entry = File::where('filename', '=', $filename)->firstOrFail();
+		 	// 	if (\Storage::exists($entry->filename)) {
+				// 	$file = \Storage::disk('local')->get($entry->filename);
+
+				// 	// return (new \Response($file, 200))
+			 //              // ->header('Content-Type', $entry->mime);
+				// 	return response($file,200)
+			 //            ->header('Content-Type', $entry->mime);
+		 			
+		 	// 	}
+		 	// 	else{
+		 	// 		return 'File Rusak atau tidak ditemukan, Silahkan Update Ulang ';
+		 	// 	}
+
+		 			$entry = File::where('nama_baru', '=', $filename)->firstOrFail();
+
+ 				if ($entry) {
+	 				$dirfile= ($dir=='default')?$entry->filename:$dir.'/'.$entry->nama_baru;
+ 					// echo $dirfile;
+ 					// ARSIPPROSESSP2D-UYUYphpFDCC.tmp.pdf
+ 					// dinas-p/ARSIPPROSESSP2D-UYUYphpF441.tmp.pdf
+
+				 		if (\Storage::exists($dirfile)) {
+
+							$file = \Storage::get($dirfile);
+							// return (new \Response($file, 200))
+					              // ->header('Content-Type', $entry->mime);
+							return response($file,200)
+					            ->header('Content-Type', $entry->mime);
+				 			
+				 		}
+				 		else{
+		 			return 'File  tidak ditemukan, Silahkan Update Ulang ';
+
+				 		}
+ 				}
+		 		else{
+		 			return 'File Rusak atau tidak ditemukan, Silahkan Update Ulang ';
+		 		}
+	}
+     
+}

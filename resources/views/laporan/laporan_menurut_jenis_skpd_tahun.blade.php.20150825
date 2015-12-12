@@ -1,0 +1,116 @@
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto; }
+.tg td{font-family:Arial, sans-serif;padding:20px 20px;  overflow:hidden;word-break:normal;}
+
+.tg th{font-family:Arial, sans-serif;font-weight:normal; padding:20px 20px;overflow:hidden;word-break:normal;}
+.tg .head{font-weight:bold; text-align:center; padding-top:2px; }
+
+.tg .tg-by3v{font-weight:bold;font-size:14px;text-align:center;}
+.tg .tg-e3zv{font-weight:bold}
+.tg .tg-hgcj{font-weight:bold;text-align:center}
+.tg .no{width:2px}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-by3v" colspan="9">PEMERINTAH KOTA MOJOKERTO</th>
+  </tr>
+  <tr>
+    <td class="tg-by3v" colspan="9">JUMLAH SP2D MENURUT SKPD TAHUN : {{ $tahun or '…….'}} <br></td>
+  </tr>
+  <tr>
+  <TD></TD>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+
+  </table>
+  <table class="tg" border="1" >
+  <tr>
+    <td class="tg-e3zv head" rowspan="2">NO</td>
+    <td class="tg-e3zv head" rowspan="2">NAMA SKPD</td>
+    <td class="tg-hgcj head" colspan="3">SPM</td>
+    <td class="tg-hgcj head" colspan="2">SP2D</td>
+    <td class="tg-hgcj head" rowspan="2">KETERANGAN</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">JUMLAH</td>
+    <td class="tg-e3zv">NILAI<br></td>
+    <td class="tg-e3zv">POTONGAN</td>
+    <td class="tg-e3zv">JUMLAH <br></td>
+    <td class="tg-e3zv">NILAI</td>
+  </tr>
+  <tr>
+    <td class="tg-hgcj">1</td>
+    <td class="tg-hgcj">2</td>
+    <td class="tg-hgcj">3</td>
+    <td class="tg-hgcj">4</td>
+    <td class="tg-hgcj">5</td>
+    <td class="tg-hgcj">6</td>
+    <td class="tg-hgcj">7</td>
+    <td class="tg-hgcj">8</td>
+  </tr>
+<?php //dd($rows)
+    // $total_spm_jumlah =0;
+    // $total_spm_nilai =0;
+    // $total_spm_potongan =0;
+    // $total_sppd_jumlah =0;
+    // $total_sppd_nilai =0;
+?>
+@foreach($rows as $key => $row)
+   <tr>
+      <td class="tg-031e">{{ $key+1 }}</td>
+      <td class="tg-031e">{{ $row['nama_singkat_skpd'] or '' }}           </td>
+      <td class="tg-031e">{{ $row['spm_jumlah'] or '' }}            </td>
+      <td class="tg-031e">{{ $row['spm_nilai'] or '' }}           </td>
+      <td class="tg-031e">{{ $row['spm_potongan'] or '' }}            </td>
+      <td class="tg-031e">{{ $row['sppd_jumlah'] or '' }}           </td>
+      <td class="tg-031e">{{ $row['sppd_nilai'] or '' }}            </td>
+      <td class="tg-031e">{{ $row['no_sppd'] or '' }}           </td>
+      <td class="tg-031e">{{ $row['keterangan'] or '' }}            </td>
+      <td class="tg-031e">{{ $row['nama_skpd'] or '' }}           </td>
+      <td class="tg-031e">{{ $row['nama_singkat_skpd'] or '' }}           </td>
+  </tr>
+  <?php 
+      // $total_spm_jumlah +=$row->spm_jumlah;
+      // $total_spm_nilai +=$row->spm_nilai;
+      // $total_spm_potongan +=$row->spm_potongan;
+      // $total_sppd_jumlah +=$row->sppd_jumlah;
+      // $total_sppd_nilai +=$row->sppd_nilai;
+  ?>
+
+@endForeach
+  <tr>
+    <td class="tg-031e" colspan="8"></td>
+
+  </tr>
+  
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-e3zv">JUMLAH</td>
+    <td class="tg-031e">{{$total_spm_jumlah or ''}} </td>
+    <td class="tg-031e">{{$total_spm_nilai or ''}} </td>
+    <td class="tg-031e">{{$total_spm_potongan or ''}} </td>
+    <td class="tg-031e">{{$total_sppd_jumlah or ''}} </td>
+    <td class="tg-031e">{{$total_sppd_nilai or ''}} </td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+
+  </table>
+  <BR>
+  <BR>
+  <table>
+  <tr>
+    <td class="tg-031e" colspan="9">Keterangan :<br>,*) Diisi,Nama SKPD yang dipilih,<br>**) Diisi,tahun data SP2D yang ditampilkan,<br>1,Diisi nomor urut,<br>2 Diisi,jenis SP2D (hanya ada 4 jenis),<br>3 Diisi,jumlah SPM yang diajukan,<br>4 Diisi,jumlah nilai uang pada,SPM yang,diajukan,<br>5 Diisi,jumlah nilai potongan pada SPM yang diajukan,<br>6 Diisi,jumlah SP2D yang diterbitkan,<br>7 Diisi,jumlah nilai uang pada,SP2D yang,diterbitkan,<br>8 Diisi,jumlah SP2D yang terlambat diterbitkan dengan tulisan (… SP2D Terlambat)</td>
+  </tr>
+</table>
+

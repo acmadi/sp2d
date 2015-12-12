@@ -1,0 +1,703 @@
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'center'">
+		<div id="tt" class="easyui-tabs" fit="true">
+			<div title="Daftar Dokumen SP2D">
+				<table id="contentCenter" fit="true" style="widht: 10000px;" >
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<!-- Toolbar==================================================================== -->
+		<div id="toolbar" style="padding:5px;height:auto">
+			<div style="margin-bottom:5px">
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-plus" onclick="javascript:TambahDokSPPD('Home');"plain="true">Tambah </a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-check-square-o" plain="true" onclick="javascript:AksiKoreksi();"> Koreksi</a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-refresh" plain="true" onclick="javascript:Refresh();">Refresh</a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-file-image-o" plain="true"  onclick="javascript:LihatDokumen();">Lihat Dokumen</a>
+				<a href="#" class="easyui-linkbutton" iconCls="fa fa-close" plain="true" onclick="javascript:AksiHapus();">Hapus</a>
+				<!-- <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true">Tampilkan Filter Dokumen</a> -->
+				<input type="checkbox" id='show'>Tampilkan Filter Dokumen
+			</div>
+			<div style="padding:5px;height:auto;display:none;" id="formPencarian">
+				<form name="pencarian" id="pencarian">
+				<input name="cari" type="hidden" value="ok"> 
+				
+					<div style="display:inline-block; width:40%;">
+					<legend title="Pilih">
+						<div class="baris" >
+						<input name="skpd_id_ck" type="checkbox" > <span style="width:200px; display:inline-block"> SKPD_id</span><input id="skpd_id-x" name="skpd_id"  value="skpd_id" style="width:200px;"></div>
+						<div class="baris">
+
+						<input name="jenis_sppd_id_ck" type="checkbox" > <span style="width:200px; display:inline-block"> Jenis SP2D</span><input id="jenis_sppd_id-x" name="jenis_sppd_id" value="jenis_sppd_id" style="width:200px;"></div>
+						<div class="baris">
+
+						<input name="penerima_id_ck" type="checkbox" > <span style="width:200px; display:inline-block"> Penerima SP2D </span><input name="penerima_id"  id="penerima_id-x"   style="width:200px" value="penerima"></div>
+						<div class="baris">
+
+						<input name="tahun_ck" type="checkbox" > <span style="width:200px; display:inline-block"> Tahun</span><input name="tahun"   class="easyui-textbox"  style="width:200px" value="tahun"></div>
+						<div class="baris">
+
+						<input name="no_sppd_ck" type="checkbox" > <span style="width:200px; display:inline-block"> Nomor SP2D</span><input name="no_sppd"   class="easyui-textbox"   style="200px" value="no_sppd"></div>
+						<div class="baris">
+
+						<input name="keperluan_ck" type="checkbox" > <span style="width:200px; display:inline-block"> Keperluan</span><input name="keperluan"   class="easyui-textbox"    style="width:200px" value="keperluan"></div>
+					</legend>
+						
+					</div>
+					<div style="display:inline-block; width:30%; position:absolute; top:0px; padding:20px;">
+						<a id="cari" href="#" class="easyui-linkbutton" data-options="iconCls:'fa fa-search'" tyle="padding:50px;">Cari</a>
+						<!-- <button type="button" id="cari" onclick="" style="padding:50px;"> Cari</button> -->
+					</div>
+				</form>
+			</div>
+		
+		</div>
+<style type="text/css">
+	.baris:hover{
+		background-color: red;
+	}
+	#pdf {
+	  width: 100%;
+	  height: 70%;
+	  margin: 2em auto;
+	  border: 10px solid #6699FF;
+	}
+
+	#pdf p {
+	   padding: 1em;
+	}
+
+	#pdf object {
+	   display: block;
+	   border: solid 1px #666;
+	}
+</style>
+<script type="text/javascript">
+var myKeyHandler = $.extend({},$.fn.combogrid.defaults.keyHandler,{
+    query:function(q){
+    	alert(q)
+        
+    }
+});
+
+$('#jenis_sppd_id-x').combobox({
+    url:'{{route('suplay.jenis-sppd.combobox')}}',
+    // method:'get',
+    valueField:'id',
+    textField:'nama_jenis_sppd'
+});
+$('#skpd_id-x').combobox({
+    url:'{{route('suplay.skpd.combobox')}}',
+    // method:'get',
+    valueField:'id',
+    textField:'nama_skpd'
+});
+$('#penerima_id-x').combobox({
+  url:'{{route('suplay.penerima.combobox')}}',
+  valueField:'id',
+  textField:'nama_penerima'
+});
+
+function Refresh (argument) {
+	$('#contentCenter').datagrid('reload',{}); 
+}
+
+function loadpdf (url) {
+  console.log(url);
+  // window.onload = function (){
+    var myPDF = new PDFObject({ 
+      url: url,
+      pdfOpenParams: {
+        navpanes: 1,
+        view: "FitV",
+        pagemode: "thumbs"
+      }
+    
+    }).embed("pdf");
+  
+  // };
+  }
+
+function LihatDokumen (argument) {
+	var row = $('#contentCenter').datagrid('getSelected');
+	if (row.file_url.length){
+	 	console.log(row.file_url);
+	 	// var url=''
+	 		$.download(row.file_url, {   }, 'get')
+	 	return false;
+
+	 	$('#windowA').window({href:url,
+	 			iconCls:'icon-save',
+	 			title:'Entry Dokumen SP2D',
+	 			modal:true,
+	 			cache:false,
+	 			onBeforeClose:function  (argument) {
+	 				// alert('on before')
+	 				// return false
+
+	 			},
+	 			onBeforeLoad: function  (param) {
+	 				// console.log('onbeforeLoad');
+	 				// alert(param)
+	 			}
+	 		});
+	    // $.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+	}
+	else{
+		alert('File Belum ter upload')
+	}
+}
+function AksiHapus() {
+				var row = $('#contentCenter').datagrid('getSelected');
+				
+				if (row){
+				 	// console.log(row.id);
+					$.messager.confirm('Konfirmasi ', 'Apakah Anda ingin menghapus data '+row.no_sppd, function(r){
+						if (r)
+						{
+						 	
+						 	$.post('{{url('dokumens')}}/'+row.id, { _method: 'DELETE' }, function(data, textStatus, xhr) {
+						 		alert(data)
+						 		// console.log(data)
+						 		// console.log(textStatus)
+						 		// console.log(xhr)
+							 		if (textStatus=='success') {
+							 			$.messager.show({  
+							 			title: 'Status',  
+							 			msg: data  
+							 			});	
+										$('#contentCenter').datagrid('reload');
+
+							 		}
+							 		else{
+						 				$.messager.show({  
+						 				title: 'Gagal !',  
+						 				msg: 'Terjadi Kesalahan !'  
+						 				});		
+										$('#contentCenter').datagrid('re load');
+							 		}
+							 	}).fail(function(data) {
+							 		// $.messager.show({  
+							 		// title: 'Gagal !',  
+							 		// msg: 'Kegagalan koneksi , periksa lagi jaringan anda  !'  
+							 		// });	
+							 		$.messager.show({  
+							 		title: 'Gagal !',  
+							 		msg: 'Kegagalan koneksi , periksa lagi jaringan anda  !'  
+							 		});	
+										$('#contentCenter').datagrid('reload');
+								    // alert( "error" );
+								  });
+						}
+					});	
+				    // $.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+				}
+				
+			}
+function  AksiKoreksi(argument) {
+		var row = $('#contentCenter').datagrid('getSelected');
+		console.log(row);
+			// var url='google.com'
+				// $('#content-x').empty()
+			$('#windowA').empty();
+			if (row){
+				 $('#windowA').window({href:'{{route('ajaxgrid', ['page' => 'eds'])}}',
+				 		iconCls:'icon-save',
+				 		title:'Entry Dokumen SP2D',
+				 		modal:false,
+				 		cache:false,
+				 onBeforeClose:function  (argument) {if(confirm('Apakah anda benar-benar ingin menutup window ini?\ndata di form isian anda akan hilang anda belum menyimpanya!!')) {return true } else {return false } 
+						},
+				 		onLoad:function  (argument) {
+					// $('#windowA').window('center').window('hventer')
+		                $('#windowA').window('center'); 
+					
+				 			
+							$('#F-INPUT').form('load','{{url('dokumens')}}/'+row.id+'/edit');
+							$('#F-INPUT').form({
+								onLoadSuccess: function  (res) {
+									$('#F-INPUT').attr('action', '{{url('dokumens')}}/'+row.id);
+									$('#windowA').window('center')
+						                windowHelper('A').rel()
+									// $('#thumbnail').html(res.image).show();
+									 // loadpdf("http://local.sppd.net/file/get/php541B.tmp.pdf")
+									 console.log(res.tgl_sppd);
+									 $('#tgl_sppd').datebox('setValue', res.tgl_sppd);
+								 	customTitleTab('tabX',' Koreksi Data Dokumen { '+row.nama_dokumen+' }')
+									$('#simpan').attr('disabled', 'disabled');
+
+									 // $('#tgl_sppd')
+									 // $('#tgl_spm')
+									 // $('#tgl_pengantar')
+									 // $('#tgl_diterima')
+									 // $('#tgl_acc_kasi')
+									 // $('#tgl_acc_kabid')
+									 // $('#tgl_acc_kadis')
+									 // $('#tgl_referensi	')
+									 loadpdf(res.link_pdf)
+
+									// console.log(res);
+								}
+							});
+				 			$('#jenis_sppd_id').combobox({
+				 			    url:'{{route('suplay.jenis-sppd.combobox')}}',
+				 			    valueField:'id',
+				 			    textField:'nama_jenis_sppd'
+				 			});
+					 		$('#skpd_id').combobox({
+					 		    url:'{{route('suplay.skpd.combobox')}}',
+					 		    valueField:'id',
+					 		    textField:'nama_skpd',
+					 		    onChange:function  (newValue, oldValue) {
+
+								// console.log(newValue[0]);
+								// console.log(eval($('#skpd_id').combobox('getData')));
+
+					 		    		$('#unit_kerja_id').combobox({
+					 		    		    url:'{{route('suplay.unit-kerja.combobox')}}',
+					 		    		    valueField:'id',
+					 		    		    textField:'nama_unit_kerja',
+					 		    		    onBeforeLoad: function(param){
+					 		    		    	param.id = newValue;
+					 		    		    	
+					 		    		    }
+					 		    		});
+					 		    		
+
+					 		    },
+					 		    onSelect:function  (data) {
+					 		    	// console.log(data);
+					 		    	$('#no_boks').textbox().textbox('setValue',data.nama_singkat_skpd.toUpperCase() );
+					 		    }
+					 		});
+				 			// $('#penerima_id').combobox({
+				 			    // url:'{{route('suplay.penerima.combobox')}}',
+				 			    // valueField:'id',
+				 			    // textField:'nama_penerima',
+				 			    // onChange:function  (newValue,old) {
+				 			             // if (newValue==1) {
+				 			               // $('#penerima_pihak_lain_view').show();
+				 			                 // return false;
+				 			             // };
+				 			           // 
+				 			               // $('#penerima_pihak_lain_view').hide();
+				 			       // }
+				 			// });
+				 			// $('#penerima_id').combobox({
+				 			//     url:'{{route('suplay.penerima.combobox')}}',
+				 			//     valueField:'id',
+				 			//     textField:'nama_penerima',
+				 			//     onChange:function  (newValue,old) {
+				 			//              if (newValue==1) {
+				 			//                $('#penerima_pihak_lain_view').show();
+				 			//                  return false;
+				 			//              };
+				 			           
+				 			//                $('#penerima_pihak_lain_view').hide();
+				 			//        }
+				 			// });
+				 			$('#penerima_id').combogrid({
+				 			    delay: 500, panelWidth: 300,
+				 			    // mode: 'remote',
+				 			    url:'{{route('suplay.penerima.combobox')}}',
+				 			    idField: 'id',
+				 			    textField: 'nama_penerima',
+				 			    columns: [[
+				 			        {field:'id',title:'ID',width:20,sortable:true},
+				 			        {field:'nama_penerima',title:'Nama Penerima',width:200,sortable:true}
+				 			    ]]
+				 			});
+							$('#update').show();
+							$('#simpan').hide();
+							
+							
+							if ($('#F-INPUT').find("input[name='_method']").length <= 1) {
+								$('#F-INPUT').append('<input type="hidden" name="_method" value="PATCH">');
+							};
+							$('#nama_dokumen').textbox({readonly:true})
+				 		}
+
+				 	});
+
+				 // $('#windowA').window('refresh');
+				 // $('#windowA').window('refresh');
+			    // $.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+			}
+				else{
+					$.messager.alert('Info', 'Anda harus memilih baris di tabel terlebih dulu', 'info');
+				}
+		
+}
+
+function windowHelper(idGridWindow) {
+	// alert();
+	$(document).keydown(function(event){
+		// event.preventDefault();
+		if (event.keyCode==112) {
+			// alert('key code f1')
+			$('#windowY').empty(); 	
+			$('#windowY').dialog({
+							title: 'Daftar Penerima',
+							width: 400,
+							height: 400,
+							modal:false,cache:false,
+							href: '{{route('ajaxgrid', ['page' => 'penerima'])}}/'+idGridWindow,
+							minimizable:true,
+							collapsible:true,
+							resizable:true,
+							buttons:[{
+								text:'Pilih',
+								handler:function(){
+									$('#windowY').dialog('close');
+									var row = $('#contentCenter'+''+idGridWindow).datagrid('getSelected');
+									if (row) {
+										$('#penerima_id').combogrid({url:'{{route('suplay.penerima.combobox')}}'}).combogrid('setValue', row.id); 
+										console.log($('#penerima_id').combogrid('getValue'))
+									}
+									else{
+										$.messager.alert('Info', 'Anda Belum memilih data di barisnya !' , 'info');
+									}
+									
+								}
+							}]
+						});	
+
+		}
+		if (event.keyCode==113) {
+		// alert('FOrm Unit Kerja ')
+			$('#windowY').empty(); 	
+				$('#windowY').dialog({
+								title: 'Daftar Unit Kerja ',
+								width: 700,
+								height: 600,
+								modal:false,
+								href: '{{route('ajaxgrid', ['page' => 'duk'])}}/UnitKerja'+idGridWindow,
+								minimizable:true,
+								collapsible:true,
+								resizable:true,
+								buttons:[{
+									// text:'Pilih',
+									// handler:function(){
+									// 	// $('#windowY').dialog('close');
+									// 	var row = $('#contentCenter'+'UnitKerja'+idGridWindow).datagrid('getSelected');
+									// 	if (row) {
+									// 		$('#penerima_id').combogrid({url:'{{route('suplay.penerima.combobox')}}'}).combogrid('setValue', row.id); 
+									// 		console.log($('#penerima_id').combogrid('getValue'))
+									// 	}
+									// 	else{
+									// 		$.messager.alert('Info', 'Anda Belum memilih data di barisnya !' , 'info');
+									// 	}
+										
+									// }
+								}]
+							}).dialog('center')	
+
+		}
+		if (event.keyCode==13) {
+			if($('#update').attr('disabled') == 'disabled'){
+				console.log('update attribut  '+$('#update').attr('disabled') )
+				return false;
+					$('#simpan').trigger( "click" );
+
+			}
+			else if($('#simpan').attr('disabled') == 'disabled'){
+				console.log('simpan attribut  '+$('#simpan').attr('disabled') )
+				// console.log('simpan display  '+$('#simpan').css('display') )
+				$('#update').trigger( "click" );
+				return false;
+			}
+
+
+		}	if (event.keyCode==114) {
+		alert('Tambah SP2D key f4')
+
+		}	if (event.keyCode==115) {
+		alert('Tambah SP2D key f4')
+
+		}
+		if (event.keyCode==27) {
+		alert('Tambah SP2D key esc')
+
+		}
+	});
+
+	var tombol= function  () {
+			$('#reload_penerima_id').on('click', function(event) {
+				event.preventDefault();
+				$('#penerima_id').combogrid({url:'{{route('suplay.penerima.combobox')}}'}); 
+				
+			});
+			$('#reload_jenis_sppd_id').on('click', function(event) {
+				event.preventDefault();
+				$('#jenis_sppd_id').combobox('reload','{{route('suplay.jenis-sppd.combobox')}}'); 
+				
+			});
+			$('#reload_skpd_id').on('click', function(event) {
+				event.preventDefault();
+				$('#skpd_id').combogrid({url:'{{route('suplay.skpd.combobox')}}'});  
+				
+			});
+	}
+	return {
+		rel:tombol
+	}
+}
+	function TambahDokSPPD () {
+
+		// 
+	$.get('{{route('token')}}', function(data) {
+		
+		
+		$('#windowA').empty()
+		$('#windowA').window({href:'{{route('ajaxgrid', ['page' => 'eds'])}}',
+				iconCls:'icon-save',
+				title:'Tambah Dokumen SP2D',
+				modal:false,
+				cache:false,
+				 onBeforeClose:function  (argument) {if(confirm('Apakah anda benar-benar ingin menutup window ini?\ndata di form isian anda akan hilang anda belum menyimpanya!!')) {return true } else {return false } 
+				 },
+				onLoad:function  (param) {
+		                $('#windowA').window('center'); 
+		                windowHelper('A').rel()
+		           
+				 	customTitleTab('tabX',' Tambah Data Dokumen Baru')
+
+					// $('#F-INPUT').form('clear');
+					$("input:hidden[name=_token]").val(data);
+					$('#jenis_sppd_id').combobox({
+					    url:'{{route('suplay.jenis-sppd.combobox')}}',
+					    valueField:'id',
+					    textField:'nama_jenis_sppd'
+					});
+					// $('#skpd_id').combobox({
+					//     url:'{{route('suplay.skpd.combobox')}}',
+					//     valueField:'id',
+					//     textField:'nama_skpd',
+					//     onChange:function  (newValue, oldValue) {
+
+					//     		$('#unit_kerja_id').combobox({
+					//     		    url:'{{route('suplay.unit-kerja.combobox')}}',
+					//     		    valueField:'id',
+					//     		    textField:'nama_unit_kerja',
+					//     		    onBeforeLoad: function(param){
+					//     		    	param.id = newValue;
+					    		    	
+					//     		    },
+					//     		});
+					    		
+
+					//     },
+			 	// 	    onSelect:function  (data) {
+			 	// 	    	// console.log(data);
+			 	// 	    	$('#no_boks').textbox().textbox('setValue',data.nama_singkat_skpd.toUpperCase()+'-' );
+			 	// 	    }
+			 		
+					// });
+
+					$('#skpd_id').combogrid({
+					    delay: 500, panelWidth: 300,
+					    url:'{{route('suplay.skpd.combobox')}}',
+					    idField: 'id',
+					    textField: 'nama_skpd',
+					    columns: [[
+					        {field:'id',title:'ID',width:20,sortable:true},
+					        {field:'nama_skpd',title:'SKPD',width:300,sortable:true}
+					    ]]
+					    ,
+					      onChange:function  (newValue, oldValue) {
+					    		$('#unit_kerja_id').combobox({
+					    		    url:'{{route('suplay.unit-kerja.combobox')}}',
+					    		    valueField:'id',
+					    		    textField:'nama_unit_kerja',
+					    		    onBeforeLoad: function(param){
+					    		    	param.id = newValue;
+					    		    },
+					    		});
+					    }
+					    ,
+			 		    onSelect:function  (data) {
+			 		    	console.log('ddd '+data);
+			 		    	var g = $('#skpd_id').combogrid('grid');
+			 		    	var r = g.datagrid('getSelected');	
+			 		    	// console.log(r);
+			 		    	$('#no_boks').textbox().textbox('setValue', r.nama_singkat_skpd.toUpperCase()+'-');
+			 		    }
+					});
+					
+					// $('#penerima_id').combobox({
+					    // url:'{{route('suplay.penerima.combobox')}}',
+					    // valueField:'id',
+					    // textField:'nama_penerima',
+					    // onChange:function  (newValue,old) {
+					             // if (newValue==1) {
+					               // $('#penerima_pihak_lain_view').show();
+					                 // return false;
+					             // };
+					           // 
+					               // $('#penerima_pihak_lain_view').hide();
+					       // }
+					// });
+			
+
+					$('#penerima_id').combogrid({
+					    delay: 500, panelWidth: 200,
+					    url:'{{route('suplay.penerima.combobox')}}',
+					    idField: 'id',
+					    textField: 'nama_penerima',
+					    columns: [[
+					        {field:'id',title:'ID',width:20,sortable:true},
+					        {field:'nama_penerima',title:'Nama Penerima',width:200,sortable:true}
+					    ]]
+					});
+			
+
+					$('#thumbnail').show()
+					$('#update').attr('disabled','disabled').hide();
+						$('#simpan').show();
+						// $('#F-INPUT').form('clear');// jangan gunakan ini saat inisialisasi 
+						if ($('#F-INPUT').find("input[name='_method']").length >= 1) {
+							$('#F-INPUT').find("input[name='_method']").remove();
+						};
+
+					
+
+						
+					
+				},
+				onBeforeLoad: function  (param) {
+					// console.log('onbeforeLoad');
+					// alert(param)
+				}
+			});
+		});
+	// $('#windowA').window('refresh');
+	}
+
+
+	$('#contentCenter').datagrid(
+	{
+		url:'{{route('dokumens.data')}}',
+	    // method:'get',
+		
+		// title:'Daftar Unit Kerja',
+		toolbar: '#toolbar',
+		columns:[[
+		// {field:'productid',title:'No',width:200},
+		{field:'tahun',title:'Tahun ',width:20},
+		{field:'no_sppd',title:'No. SP2D ',width:20},
+		{field:'tgl_sppd',title:'Tgl. SP2D '},
+		{field:'nama_jenis_sppd',title:'SKPD ',width:20},
+		{field:'nama_skpd',title:'SKPD ',width:20},
+		// {field:'skpd_id',title:'SKPD ',width:20},
+		{field:'nama_penerima',title:'Penerima ',width:20},
+		// {field:'penerima',title:'Penerima ',width:20},
+		{field:'keperluan',title:'Keperluan ',width:20}
+		// {field:'productname',title:'Singkatan'}
+		]],
+		queryParams: {
+			_token: '{{ csrf_token() }}'
+		},
+		// height: 200,
+		pagination : true,
+		// remoteSort:true,
+		rownumbers : true,
+		singleSelect:true,
+		striped:true, 
+		collapsible:true,
+		autoRowHeight:true,
+		fitColumns:true
+		// scrollbarSize:10,
+		// pageSize:10
+	});
+						// $('#content-x').find('.easyui-combobox').combobox({
+						// 		url:'combobox_data.json',
+						// 		valueField:'id',
+						// 		textField:'text',
+						// 		onSelect: function(rec){
+						// 			alert('selected')
+						// 		// var url = 'get_data2.php?id='+rec.id;
+						// 		// $('#cc2').combobox('reload', url);
+						// 	}
+						// }
+						
+						$('#content-x').find('.easyui-layout').layout()
+						$('#content-x').find('.easyui-linkbutton').linkbutton()
+						$('#content-x').find('.easyui-tabs').tabs()
+
+
+$('#show').change(function() {
+    if ($(this).is(':checked')) {
+    	 $( "#formPencarian" ).show( "slow" );
+        // this.checked = confirm("Are you sure?");
+        // $(this).trigger("change");
+    }
+    else{
+    	$( "#formPencarian"  ).slideUp("slow");
+    }
+});
+$.fn.serializeObject = function() {
+var o = {};
+var a = this.serializeArray();
+$.each(a, function() {
+    if (this.name.substr(-2) == "[]"){
+        this.name = this.name.substr(0, this.name.length - 2);
+        o[this.name] = [];
+    }
+
+    if (o[this.name]) {
+        if (!o[this.name].push) {
+            o[this.name] = [o[this.name]];
+        }
+        o[this.name].push(this.value || '');
+    } else {
+        o[this.name] = this.value || '';
+    }
+});
+return o;
+}
+$(function  () {
+	    $('#cari').bind('click', function(){
+	    		// alert('cariiiii');
+	    		var data = $( "#pencarian" ).serializeArray();
+	    		var xx = new Object()
+	    		jQuery.each( data, function( i, result ) {
+	    			// console.log(result);
+	    			xx[result.name]=result.value
+	    			 
+	    			
+
+	    		  // $( "#results" ).append( field.value + " " );
+	    		});
+    			$('#contentCenter').datagrid('load', xx);
+	    		// console.log(xx); 
+	    		// return false;
+	    		// console.log(data);
+	    		// console.log({name: 'easyui', address: 'ho'});
+	    			
+	    			// $('#contentCenter').datagrid('load', {
+	    			//     name: 'easyui',
+	    			//     address: 'ho'
+	    			// });
+					// $('#pencarian').form('submit',{  
+					// 	success: function(result){
+					// 		if (result == "this"){
+					// 			$.messager.show({  
+					// 				title: 'Status',  
+					// 				msg: 'Data Berhasil Dimasukkan !'  
+					// 			});
+					// 			$('#this').dialog('close')
+					// 			$('#this').datagrid('reload');
+					// 		}
+					// 		else {
+					// 			$.messager.show({  
+					// 				title: 'Status',  
+					// 				msg: result  
+					// 			});
+					// 		} 
+					// 	} 
+					// });	        // alert('easyui');
+	    });
+})
+</script>

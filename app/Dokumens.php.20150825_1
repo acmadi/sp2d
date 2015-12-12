@@ -1,0 +1,99 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use DB;
+
+class Dokumens extends Model
+{
+    protected $table = 'dokumen';
+    public $timestamps = false;
+    protected $fillable =[
+    	'tahun',
+    	'no_sppd',
+    	'tgl_sppd',
+    	'jenis_sppd_id',
+    	'skpd_id',
+    	'penerima_id',
+    	'keperluan',
+    	'no_spm',
+    	'tgl_spm',
+    	'spm_diajukan',
+    	'potongan',
+    	'spm_benar',
+    	'tgl_pengantar',
+    	'tgl_diterima',
+    	'no_agenda',
+    	'tgl_acc_kasi',
+    	'tgl_acc_kabid',
+    	'tgl_acc_kadis',
+    	'keterangan',
+    	'nama_dokumen',
+    	'tgl_referensi',
+    	'no_rak',
+    	'no_boks',
+    	'no_map'
+    	];
+        function getColoumn()
+        {
+            return $this->fillable;
+        }
+        public function file()
+           {
+               return $this->hasOne('App\file','dokumen_id');
+           }
+   
+      public function jenissppd()
+      {
+       return $this->belongsTo('App\Jenissppd','jenis_sppd_id');
+      }
+      public function penerima()
+      {
+          return $this->belongsTo('App\Penerima','penerima_id');
+      }
+      public function skpd()
+      {
+          return $this->belongsTo('App\Skpd','skpd_id');
+      }
+
+
+      function scopeRekaptotal($query,$tahun,$skpd_id)
+      {
+          return $this->select(DB::raw('
+                                                              count(dokumen.no_sppd) as total_spm_jumlah,
+                                                              sum(dokumen.spm_diajukan) as total_spm_nilai,
+                                                              sum(dokumen.potongan) as total_spm_potongan,
+                                                              count(dokumen.no_sppd) as total_sppd_jumlah,
+                                                              sum(dokumen.spm_benar) as total_sppd_nilai
+                                                              
+                                                              '
+                                                          ))
+                                                      // $query
+                                                       ->where('tahun', '=', $tahun)
+                                                       ->where('skpd_id', '=',$skpd_id)
+                                                       ->first();
+                                                       // ->where('skpd_id', '=',$skpd_id)->get();
+      }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

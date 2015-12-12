@@ -1,0 +1,425 @@
+
+@section('footer')
+<script type="text/javascript">
+
+		// jQuery(document).ready(function($) {
+		// 		$( "p" ).click(function( event ) {
+		// 		alert( event.currentTarget === this ); // true
+		// 		});
+		// 	$('#mm1,#mm2,#mm3,#mm4,submm2').on('click', function(event) {
+		// 		// event.preventDefault();
+		// 		// event.target.is('a')
+		// 		// console.log($('#menus,#mm1,#mm2,#mm3,#mm4').find('a'));
+
+		// 		// console.log(event.target);
+		// 			if ($(event.target).is('a') && $(event.target).attr('data-link')) {
+		// 				console.log('IS_A');
+		// 				openPage($(event.target).attr('data-link'))
+		// 			// alert($(event.target).attr('data-link'));
+		// 			// $.get($(event.target).attr('data-link'), function(data) {
+		// 			// 	var isi= $('#content-x').empty().html(data)
+		// 			// 	console.log(isi);
+		// 			// 	// isi.find('.easyui-layout').layout()
+		// 			// 	// isi.find('.easyui-tabs').tabs()
+		// 			// 	 // $('#target').empty().html(tpl).find('.easyui-layout').layout();
+
+		// 			// });
+		// 		};
+
+		// 		// alert('menus');
+		// 		/* Act on the event */
+		// 	});
+	
+
+		// });
+		// function openPage(url) {
+		// 	$(document).find('.panel.combo-p').remove();
+		// 	// var tab=$('#tt').tabs('getSelected');  // get selected panel
+		// 	// tab.panel('clear');
+		// 		$('#windowX').empty();
+		// 		$('#content-x').empty()
+		// 	$.get(url, function(data) {
+		// 		var isi= $('#content-x').empty().html(data)
+		// 		// $('.easyui-combobox').combobox();
+		// 		// console.log(isi);
+		// 		// isi.find('.easyui-layout').layout()
+		// 		// isi.find('.easyui-tabs').tabs()
+		// 		 // $('#target').empty().html(tpl).find('.easyui-layout').layout();
+
+		// 	}).fail(function() {
+		// 	    alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+		// 	    location.reload();
+		// 	  })
+		// 	  .always(function() {
+		// 	    console.log( "finished" );
+		// 	  });
+		// }
+		// function openWindow(url) {
+		// 		$('#windowX').window('clear');
+		// 		$('#content-x').empty();
+		// 		$('#windowX').empty()
+		// 	// $.get(url, function(data) {
+		// 		// KOSONGKAN content-x  untuk mencegah adanya id yang sama ya dsisipkan di windowX
+		// 		// var isi= $('#windowX').empty().html(data)
+		// 		$('#windowX').window({
+		// 			title:'Form Input Data Jenis SP2D',
+		// 			href: url ,
+		// 			height:600,
+		// 			width:500,
+		// 			modal:true,
+		// 			cache: false,
+		//             onLoad:function  (param) {
+		//                 $('#windowX').window('center'); 
+		//             },
+		//             onLoadError:function  () {
+		// 			    location.reload();
+		            	
+		//             }
+		// 			});
+				
+
+		// 	// }).fail(function() {
+		// 	//     alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+		// 	//     location.reload();
+		// 	//   })
+		// 	//   .always(function() {
+		// 	//     console.log( "finished" );
+		// 	//   });
+		// }
+		// function logout(link) {
+		// 	$.messager.confirm('Logout COnfirm ', 'Apakah Anda benar Ingin logout ? ', function(r){
+		// 					if (r)
+		// 					{
+		// 						 // $('body').fadeIn(5000);
+		// 					$.get(link, function(data) {
+		// 							// window.location();
+		// 							location.reload();
+		// 							// history.go(0)
+		// 							// location.href = location.href
+		// 							// location.href = location.pathname
+		// 							// location.replace(location.pathname)
+		// 							// location.reload(false) 
+		// 					}).fail(function() {
+		// 					    alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+		// 					    location.reload();
+		// 					  })
+		// 					  .always(function() {
+		// 					    console.log( "finished" );
+		// 					  });
+		// 					}
+		// 				});
+		
+		// }
+
+		// $.download = function(url, data, method) {
+		//     //url and data options required
+		//     if(url && data) {
+		//     	var windowx= window.open('', '_blank', 'toolbar=0,location=0,menubar=0,width=600,height=600,scrollbars=yes');
+		//     	// var windowx= window.location;
+		//         var form = $('<form />', { action: url, method: (method || 'get') });
+		//         $.each(data, function(key, value) {
+		//             var input = $('<input />', {
+		//                 type: 'hidden',
+		//                 name: key,
+		//                 value: value
+		//             }).appendTo(form);
+		         
+		//         });
+		//     // return form.appendTo('body').submit().remove();
+		//     return form.appendTo(windowx.document.body).submit().remove();
+		//     }
+		// throw new Error('$.download(url, data) - url or data invalid');
+		// };
+		// function customTitleTab(IdParentTab, TitleFromRow) {
+		// var pp = $('#'+IdParentTab).tabs('getSelected'); 
+		// console.log(TitleFromRow);
+	 // 	// var tab = pp.panel('options').tab;
+	 // 	 $('#'+IdParentTab).tabs('update',{
+		//  	tab:pp,
+		//  	options : {
+		//  	title : '--: '+TitleFromRow+' :--'
+		//  	}
+	 // 	}); 
+
+		// }
+		var tandaWindow;
+		var keyrepeat;
+		keyrepeat=0;
+		tandaWindow=false;
+
+		function windowHelper(idGridWindow) {
+			// var tandaWindow;
+
+			// alert();
+			// var mydialog;
+			$(document).keydown(function(event){
+				// var tandaWindow;
+				// tandaWindow=false;
+				// event.preventDefault();
+				// 16 shift
+				// 112 f1
+				if (event.keyCode==16 ) {
+						
+					console.log('penerima');
+					// console.log($('#windowY').get( 0 ));
+				
+					console.log('nilai tandaWindow '+tandaWindow );		
+					if ( tandaWindow == true && keyrepeat == 0) {
+						// keyrepeat=1;
+						// console.log($('#windowY').panel('body'));
+						console.log('tidak sama ');
+						// $('#penerima_A').tab('close')
+						// $('#windowY').panel('clear')
+						$('#windowY').dialog('clear')
+						$('#windowY').dialog('close')	
+						tandaWindow = false 
+						return false;
+						console.log('lewat false');
+
+					}
+					else if( tandaWindow == false && keyrepeat == 0){
+						keyrepeat=1;
+						console.log('masuk false ');
+						tandaWindow = true
+						// console.log('sama sama  <div id="windowY">');
+						$('#windowY').dialog({
+										title: 'Daftar Penerima // Tekan Esc Untuk Menutup Window ini',
+										width: 400,
+										height: 400,
+										modal:true,cache:false,
+										href: '{{route('ajaxgrid', ['page' => 'penerima'])}}/'+idGridWindow,
+										minimizable:true,
+										collapsible:true,
+										resizable:true,
+										onClose:function  (argument) {
+											$('#windowY').empty();
+										}, 
+										buttons:[{
+											text:'Pilih',
+											handler:function(){
+												// $('#windowY').dialog('close');
+												var row = $('#contentCenter'+'_'+idGridWindow).datagrid('getSelected');//cocokan dengan 
+												console.log(row);
+												if (row) {
+													$('#penerima_id').combogrid({url:'{{route('suplay.penerima.combobox')}}'}).combogrid('setValue', row.id); 
+													console.log($('#penerima_id').combogrid('getValue'))
+													// $(document).find('.panel.combo-p').remove();
+													$('#windowY').panel('clear').dialog('close')
+													return false
+
+												}
+												else{
+													$.messager.alert('Info', 'Anda Belum memilih data di barisnya !' , 'info');
+													return false
+
+												}
+												
+											}
+										}],
+										onLoad:function(){
+										   	console.log('succes!, nilai keyrepeat'+keyrepeat);
+										      keyrepeat=0;
+										   console.log('succes!, nilai keyrepeat'+keyrepeat);
+										   $.messager.show({  
+										   title: 'Status',  
+										   msg: 'Silahkan !'+'Data Telah Siap'  
+										   });
+										   return false
+										}, 
+									onClose:function (x) {
+										// console.log('befor clos');
+										// $('#windowY').panel('clear').dialog('close')
+										// console.log('after clos');
+									}
+									}).dialog('center')	;	
+						return false
+							
+						
+					}
+					else{
+						keyrepeat=1;
+						$.messager.alert('Info', 'Silahkan Menunggu, Data Sedang kami siapkan' , 'info');
+						// $.messager.show({  
+						// title: 'Status',  
+						// msg: 'Silahkan Menunggu, Data Sedang kami siapkan'  
+						// });
+						console.log('kosng');
+					}
+
+				}
+				if (event.keyCode==113 ) {
+					
+
+					 console.log('FOrm Unit Kerja ')
+						// return false;	
+					if (tandaWindow == true && keyrepeat == 0) {
+						console.log('masuk ');
+						// $('#tb_A').panel('clear')
+						$('#windowY').dialog('clear')
+						$('#windowY').dialog('close')
+						// $('#windowY').panel('clear').dialog('close')	
+						tandaWindow = false
+						return false;
+					}
+					else if(tandaWindow == false && keyrepeat == 0){
+							tandaWindow = true
+						// return false 
+						console.log('unit kerja ');
+							$('#windowY').dialog({
+											title: 'Daftar Unit Kerja // Tekan Esc Untuk Menutup Window ini',
+											width: 700,
+											height: 600,
+											modal:true,cache:false,
+											href: '{{route('ajaxgrid', ['page' => 'duk'])}}/'+idGridWindow,
+											minimizable:true,
+											collapsible:true,
+											resizable:true,
+											buttons:[{
+												text:'Pilih',
+												handler:function(){
+													// $('#windowY').dialog('close');
+													// alert('unit kerja')
+												// mydialog='#contentCenter'+'_'+idGridWindow;
+
+													var row = $('#contentCenter'+'_'+idGridWindow).datagrid('getSelected');//cocokan dengan 
+													console.log(row);
+													if (row) {
+														// $('#unit_kerja_id').combogrid({url:'{{route('suplay.unit-kerja.combobox')}}'}).combogrid('setValue', row.id); 
+														// $('#unit_kerja_id').combobox('reload','{{route('suplay.unit-kerja.combobox')}}').combobox('setValue', row.id); 
+														$('#unit_kerja_id').combobox('reload','{{route('suplay.unit-kerja.combobox')}}').combobox('setValue', row.nama_unit_kerja); 
+														// console.log($('#unit_kerja_id').combogrid('getValue'))
+														$('#windowY').panel('clear').dialog('close')
+													return false
+
+													}
+													else{
+														$.messager.alert('Info', 'Anda Belum memilih data di barisnya !' , 'info');
+														return false
+
+													}
+													
+												}
+											}],
+											onLoad:function(){
+												console.log('succes!, nilai keyrepeat'+keyrepeat);
+											   keyrepeat=0;
+												console.log('succes!, nilai keyrepeat'+keyrepeat);
+											   $.messager.show({  
+											   title: 'Status',  
+											   msg: 'Silahkan '+'Data Telah Siap'  
+											   });
+											   return false
+											}, 
+											onClose:function  (x) {
+												// console.log('befor clos');
+												// $('#windowY').panel('clear').dialog('close')
+												// console.log('after clos');
+											}
+										}).dialog('center')	
+						return false
+						
+					}
+					else{
+						keyrepeat=1;
+						$.messager.alert('Info', 'Silahkan Menunggu, Data Sedang kami siapkan' , 'info');
+						// $.messager.show({  
+						// title: 'Status',  
+						// msg: 'Anda Sudah Menekan F2 '+'Silahkan tunggu!! , Data Sedang kami siapkan'  
+						// });
+						console.log('kosong ');
+					}
+				
+
+
+				}
+				if (event.keyCode==13) {
+					if($('#update').attr('disabled') == 'disabled'){
+						console.log('update attribut  '+$('#update').attr('disabled') )
+							$('#simpan').trigger( "click" );
+						return false;
+
+					}
+					else if($('#simpan').attr('disabled') == 'disabled'){
+						console.log('simpan attribut  '+$('#simpan').attr('disabled') )
+						// console.log('simpan display  '+$('#simpan').css('display') )
+						$('#update').trigger( "click" );
+						return false;
+					}
+
+
+				}	if (event.keyCode==114) {
+				alert('Tambah SP2D key f3')
+
+				}	if (event.keyCode==115) {
+				alert('Tambah SP2D ---key f4')
+
+				}
+				if (event.keyCode==27) {
+					keyrepeat=0;
+					tandaWindow=false;
+					console.log('klik esc');
+				// alert('Tambah SP2D key esc')
+				// console.log(typeof $('#windowY').dialog('dialog'));
+				// return false;
+				// $('#windowA').window('clear');
+				$('#windowY').dialog('close')
+						return false
+
+				// var winx = typeof $('#windowY').dialog('dialog');
+				// // winx=typeof $('#windowY').dialog('dialog') ;
+				// console.log(typeof $('#windowY').dialog('dialog'));
+				// if ( winx == 'object') {
+				// 	$('#windowY').dialog('close').dialog('destroy','forceDestroy')
+
+					
+				// };
+				// // $('#windowA').window('clear');
+				// 	if ($(document).find('#windowY').length == 0) {
+				// 		console.log('tidak ada windowY');
+				// 			$('<div>', {
+				// 			    id: '#windowY'
+				// 			}).appendTo('body');
+						
+				// 	};
+
+
+				}
+			})
+	
+			var tombol= function  () {
+				// alert('reload')
+					$('#reload_penerima_id').on('click', function(event) {
+						event.preventDefault();
+						$('#penerima_id').combogrid({url:'{{route('suplay.penerima.combobox')}}'}); 
+						
+					});
+					$('#reload_jenis_sppd_id').on('click', function(event) {
+						event.preventDefault();
+						$(this).find('.fa').removeClass('fa-lg').addClass('fa-spin');
+
+						$('#jenis_sppd_id').combobox({onLoadSuccess:function  (data) {
+								    	$('#reload_jenis_sppd_id').removeClass('fa-spin').addClass('fa-lg')
+								    	// body...
+								    }}).combobox('reload','{{route('suplay.jenis-sppd.combobox')}}'); 
+						 // $( '#jenis_sppd_id' ).switchClass( "fa-lg", "fa-spin", 1000, "easeInOutQuad" );
+						
+					});
+					$('#reload_skpd_id').on('click', function(event) {
+						event.preventDefault();
+						$('#skpd_id').combogrid({url:'{{route('suplay.skpd.combobox')}}'});  
+						
+					});
+			}
+			return {
+				rel:tombol
+			}
+		}
+		function isObjectEmpty(obj) {
+		  for ( var panel in obj ) {
+		    return false;
+		  }
+		  return true;
+		}
+	</script>
+
+	@endsection

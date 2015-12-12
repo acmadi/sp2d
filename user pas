@@ -1,0 +1,38 @@
+asdf1234  ach_ma20@yahoo.co.id    Users   1
+
+achmadi12 achmadi@gmail.com  	 Group BAsdjhk   3
+
+sentryuser  user@user.com
+
+array:4 [▼
+  0 => array:5 [▼
+    "id" => 2101
+    "group_id" => 3
+    "akses" => "1"
+    "arr_id" => 0
+    "table_id" => 0
+  ]
+  1 => array:5 [▼
+    "id" => 2102
+    "group_id" => 3
+    "akses" => "1"
+    "arr_id" => 1
+    "table_id" => 0
+  ]
+  2 => array:5 [▼
+    "id" => 2103
+    "group_id" => 3
+    "akses" => "0"
+    "arr_id" => 2
+    "table_id" => 0
+  ]
+  3 => array:5 [▼
+    "id" => 2104
+    "group_id" => 3
+    "akses" => "0"
+    "arr_id" => 3
+    "table_id" => 0
+  ]
+
+  admin@admin.com
+  serntryadminf

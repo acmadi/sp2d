@@ -1,0 +1,66 @@
+{{--  with csss  --}}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto; }
+.tg td{font-family:Arial, sans-serif;padding:20px 20px;  overflow:hidden;word-break:normal;}
+
+.tg th{font-family:Arial, sans-serif;font-weight:normal;padding:20px 20px;overflow:hidden;word-break:normal;}
+.tg .tg-hgcj{font-weight:bold;text-align:center; font-size:14px;}
+.tg .head{font-weight:bold; text-align:center; padding-top:2px; }
+.tg .tg-s6z2{text-align:center}
+.tg .tg-e3zv{font-weight:bold}
+.tg .no{width:2px}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-hgcj" colspan="4">PEMERINTAH KOTA MOJOKERTO</th>
+  </tr>
+  <tr>
+    <th class="tg-hgcj" colspan="4">JUMLAH SP2D TAHUN {{ $awal_tahun or '…*)'}} S/D {{ $akhir_tahun or ',,,**)' }}<br></th>
+  </tr>
+  <tr>
+    <th class="tg-s6z2" colspan="4"></th>
+  </tr>
+  
+</table>
+<table class="tg" border="1" >
+  
+  <tr>
+    <td class="tg-e3zv head">NO <br></td>
+    <td class="tg-e3zv head">Tahun</td>
+    <td class="tg-e3zv head">Jumlah SP2D<br></td>
+    <td class="tg-e3zv head">Nilai SP2D<br></td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">1</td>
+    <td class="tg-s6z2">2</td>
+    <td class="tg-s6z2">3</td>
+    <td class="tg-s6z2">4</td>
+  </tr>
+<?php $i=0;?>
+  <tr>
+    <td class="tg-e3zv">1</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">2</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  
+</table>
+<table class="tg">
+   <tr>
+    <th class="tg-031e" colspan="4"><br><br><br><br>Keterangan<br>,:,*) Diisi tahun awal data SP2D yang,dientry,<br>**) Diisi tahun akhir data,SP2D yang dientry,<br>1,Diisi nomor urut,<br>2 Diisi tahun sesuai data SP2D yang,dientry,<br>3 Diisi jumlah SP2D yang diterbitkan,<br>4 Diisi jumlah nilai uang pada,SP2D yang diterbitkan</th>
+  </tr>
+</table>
+
+{{-- no css =================================================================================== --}}

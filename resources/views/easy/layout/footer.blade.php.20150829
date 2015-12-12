@@ -1,0 +1,170 @@
+
+@section('footer')
+<script type="text/javascript">
+
+		// 		$('#mm').menu({
+		// 			onClick:function(item){
+		//         //...
+		//     }
+		// });
+		// 		$('#contentCenter').datagrid(
+		// 		{
+		// 			url:'datagrid_data1.json',
+		// 			// title:'Daftar Unit Kerja',
+		// 			toolbar: '#tb',
+		// 			columns:[[
+		// 	// {field:'productid',title:'No',width:200},
+		// 	{field:'productid',title:'Tahun ',width:20},
+		// 	{field:'productid',title:'No. SPPD ',width:20},
+		// 	{field:'productid',title:'Tgl. SPPD '},
+		// 	{field:'productid',title:'Jenis SPPD ',width:20},
+		// 	{field:'productid',title:'SKPD ',width:20},
+		// 	{field:'productid',title:'Penerima ',width:20},
+		// 	{field:'productid',title:'Keperluan ',width:20}
+		// 	// {field:'productname',title:'Singkatan'}
+		// 	]],
+		// 	// height: 200,
+		// 	pagination : true,
+		// 	// remoteSort:true,
+		// 	rownumbers : true,
+		// 	singleSelect:true,
+		// 	striped:true, 
+		// 	collapsible:true,
+		// 	autoRowHeight:true,
+		// 	fitColumns:true
+		// 	// scrollbarSize:10,
+		// 	// pageSize:10
+		// });
+
+		// 		$('#cc_skpd, #cc_skpd2').combobox({
+		// 			url:'combobox_data.json',
+		// 			valueField:'id',
+		// 			textField:'text',
+		// 			onSelect: function(rec){
+		// 				alert('selected')
+		// 		// var url = 'get_data2.php?id='+rec.id;
+		// 		// $('#cc2').combobox('reload', url);
+		// 	}
+
+		// });
+
+
+		jQuery(document).ready(function($) {
+				$( "p" ).click(function( event ) {
+				alert( event.currentTarget === this ); // true
+				});
+			$('#mm1,#mm2,#mm3,#mm4,submm2').on('click', function(event) {
+				// event.preventDefault();
+				// event.target.is('a')
+				// console.log($('#menus,#mm1,#mm2,#mm3,#mm4').find('a'));
+
+				// console.log(event.target);
+					if ($(event.target).is('a') && $(event.target).attr('data-link')) {
+						console.log('IS_A');
+						openPage($(event.target).attr('data-link'))
+					// alert($(event.target).attr('data-link'));
+					// $.get($(event.target).attr('data-link'), function(data) {
+					// 	var isi= $('#content-x').empty().html(data)
+					// 	console.log(isi);
+					// 	// isi.find('.easyui-layout').layout()
+					// 	// isi.find('.easyui-tabs').tabs()
+					// 	 // $('#target').empty().html(tpl).find('.easyui-layout').layout();
+
+					// });
+				};
+
+				// alert('menus');
+				/* Act on the event */
+			});
+		});
+		function openPage(url) {
+			// return false;
+				$('#windowX').empty();
+				$('#content-x').empty()
+			$.get(url, function(data) {
+				var isi= $('#content-x').empty().html(data)
+				// console.log(isi);
+				// isi.find('.easyui-layout').layout()
+				// isi.find('.easyui-tabs').tabs()
+				 // $('#target').empty().html(tpl).find('.easyui-layout').layout();
+
+			}).fail(function() {
+			    alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+			    location.reload();
+			  })
+			  .always(function() {
+			    console.log( "finished" );
+			  });
+		}
+		function openWindow(url) {
+				$('#content-x').empty();
+				$('#windowX').empty()
+			$.get(url, function(data) {
+				// KOSONGKAN content-x  untuk mencegah adanya id yang sama ya dsisipkan di windowX
+				var isi= $('#windowX').empty().html(data)
+				$('#windowX').window({
+					title:'Form Input Data Jenis SPPD',
+					height:500,
+					width:500,
+					modal:true,
+					cache: false
+					});
+				// isi.find('.easyui-layout').layout()
+				// isi.find('.easyui-tabs').tabs()
+				 // $('#target').empty().html(tpl).find('.easyui-layout').layout();
+
+			}).fail(function() {
+			    alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+			    location.reload();
+			  })
+			  .always(function() {
+			    console.log( "finished" );
+			  });
+		}
+		function logout(link) {
+			$.messager.confirm('Logout COnfirm ', 'Apakah Anda benar Ingin logout ? ', function(r){
+							if (r)
+							{
+								 // $('body').fadeIn(5000);
+							$.get(link, function(data) {
+									// window.location();
+									location.reload();
+									// history.go(0)
+									// location.href = location.href
+									// location.href = location.pathname
+									// location.replace(location.pathname)
+									// location.reload(false) 
+							}).fail(function() {
+							    alert( "Network Error atau Masalah Autentikasi, Silahkan periksa lagi koneksi Jaringan Anda dengan Server Kami, Next Halaman kami reload " );
+							    location.reload();
+							  })
+							  .always(function() {
+							    console.log( "finished" );
+							  });
+							}
+						});
+		
+		}
+
+		$.download = function(url, data, method) {
+		    //url and data options required
+		    if(url && data) {
+		    	var windowx= window.open('', '_blank', 'toolbar=0,location=0,menubar=0,width=600,height=600,scrollbars=yes');
+		    	// var windowx= window.location;
+		        var form = $('<form />', { action: url, method: (method || 'get') });
+		        $.each(data, function(key, value) {
+		            var input = $('<input />', {
+		                type: 'hidden',
+		                name: key,
+		                value: value
+		            }).appendTo(form);
+		         
+		        });
+		    // return form.appendTo('body').submit().remove();
+		    return form.appendTo(windowx.document.body).submit().remove();
+		    }
+		throw new Error('$.download(url, data) - url or data invalid');
+		};
+	</script>
+
+	@endsection

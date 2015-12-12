@@ -1,0 +1,744 @@
+<?php 
+// $button_refresh='<span id="reload_penerima_id"><i class="fa fa-refresh fa-lg"></i></span>';
+function button_refresh($id='id')
+{  // reload_penerima_id
+  return '<span id="'.$id.'"><i class="fa fa-refresh fa-lg"></i></span>';
+}
+?>
+
+<style type="text/css">
+.drop-area{
+  width:100px;
+  height:25px;
+  /*border: 1px solid #999;*/
+  text-align: center;
+  
+  cursor:pointer;
+}
+#thumbnail img{
+  margin:auto;
+  width:100%;
+  height:100%;
+  margin:5px;
+  z-index:1;
+}
+#thumbnail {
+/*border: solid red;*/
+width:700px;
+height:700px;
+position : absolute;
+top:0px;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+z-index:1;
+}
+canvas{
+  border:1px solid red;
+}
+#upload{
+     padding:50px; margin:auto; z-index:200;
+}
+#upload a{
+    display: inline-block;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 300;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    z-index: 500;
+}
+</style>
+<script type="text/javascript">
+jQuery(function($){
+  var files;
+    $.extend($.fn.filebox.defaults, {
+        onChange: function(newValue,oldValue){
+
+        var fileDiv = document.getElementById("upload");
+        // var files = this.files
+        // showThumbnail(files)
+        var dt = newValue.dataTransfer;
+        var files = dt.files;
+
+        showThumbnail(files)
+            // return jq.each(function(){
+            //     $(this).dialog('move', newposition);
+            // });
+        }
+    });
+function removeAllChildrenFromNode (node) {
+  var shell;
+  // do not copy the contents
+  shell = node.cloneNode(false);
+
+  if (node.parentNode) {
+    node.parentNode.replaceChild(shell, node);
+  }
+
+  return shell;
+}
+
+var fileDiv = document.getElementById("upload");
+var fileInput = document.getElementById("upload-image");
+fileInput.addEventListener("change",function(e){
+
+  var files = this.files
+  showThumbnail(files)
+},false)
+
+fileDiv.addEventListener("click",function(e){
+  $(fileInput).show().focus().click().hide();
+
+  e.preventDefault();
+},false)
+
+fileDiv.addEventListener("dragenter",function(e){
+  e.stopPropagation();
+  e.preventDefault();
+},false);
+
+fileDiv.addEventListener("dragover",function(e){
+  e.stopPropagation();
+  e.preventDefault();
+},false);
+
+fileDiv.addEventListener("drop",function(e){
+    $(fileInput).show().focus().click().hide();
+
+  e.stopPropagation();
+  e.preventDefault();
+
+  var dt = e.dataTransfer;
+  var files = dt.files;
+
+  showThumbnail(files)
+},false);
+
+function xxxxx() {
+
+   
+}
+function showThumbnail(files){
+
+    pdffile=files[0];
+   pdffile_url=URL.createObjectURL(pdffile);
+   loadpdf(pdffile_url)
+
+   return false;
+  
+}
+})
+</script>
+
+<style type="text/css">
+	#F-INPUT div#ForInput{
+	width:100%; display:inline-block; float:left; position:relative; top:50px;
+	}
+	#F-INPUT div#ForInput label{
+		display:inline-block; width:20%;
+	}
+	#F-INPUT div#ForInput div{
+	padding: 2px 0px 10px 10px;
+	}
+	#F-INPUT div#ForInput input.easyui-validatebox{
+		width:20%;
+	}
+
+
+       main {
+           border: medium solid red;
+            padding-top: 100px;
+            position: relative;
+       }
+
+       .center {
+           position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: solid red;
+       }
+    canvas {
+      font-family: 'pixel';
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      border: 1px solid black;
+      cursor: none;
+      outline: none;
+    }
+</style>
+
+ <div class="easyui-layout" data-options="fit:true">
+ 	<div data-options="region:'center',title:' ',split:true">
+ 	<div class="easyui-tabs" id="tabX"fit="true" >
+ 			<div title="Form Tambah Dokumen SP2D" id="formBottom"  style="padding:3px 0px 0px 10px"  data-options="">
+ 				<div id="formBottom" style=""  >
+ 					<form id="F-INPUT" method="post"   onsubmit="return false;" enctype="multipart/form-data" >
+          {!! csrf_field() !!}
+						<input type="hidden" name="id" id="id">
+ 						<div id="ForInput" fit="true"  >
+                           <div style="display:none;">
+                                <!-- <label for="filex" >file  </label> -->
+
+                                <!-- :  <input id="filex"  name="gambar" type="text" style="width:300px"> -->
+                                <input type="file"  name="gambar" style="width: 100%; height:10%;display:none;" id="upload-image" multiple="multiple">
+                            </div>
+ 							<div>
+ 								<label for="nama_skpd" >Tahun  </label>
+
+ 						 		:  <input class="easyui-validatebox " name="tahun" id="tahun" data-options="required:true"  />
+ 							</div>
+ 							<div >
+ 								<label for="nama_skpd" >No SP2D  </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" name="no_sppd" id="no_sppd" style="width:70%;" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat" width:20%>Tanggal SP2D </label>
+
+ 								:  <input   type="text" required="required"  	 name="tgl_sppd" id="tgl_sppd"style="width:131px">
+ 								<DIV style="min-width:30%; display:inline-block;" >
+                  <label  for="nama_singkat">
+                                  Jenis SP2D </label>
+                                  :  <input id="jenis_sppd_id" name="jenis_sppd_id" value="" >  {!! button_refresh('reload_jenis_sppd_id') !!}
+                  </DIV>
+        
+ 								<!-- :  <input  name="jenis_sppd_id" id="jenis_sppd_id" class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+ 							<div > 
+ 								<label for="NAMA_SKPD">Nama SPKD  </label>
+                                :  <input id="skpd_id" name="skpd_id" value=""> {!! button_refresh('reload_skpd_id') !!}
+                <!--     <DIV style="min-width:30%; display:inline-block;" >
+                     <label  for="unit_kerja_id">
+                                     Nama Unit Kerja </label>
+                                     :  <input id="unit_kerja_id" name="unit_kerja_id" value="" > [F3] (+ UnitKerja baru) 
+                     </DIV> -->
+
+ 							<!-- :  <input  name="skpd_id" id="skpd_id" class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+              <div > 
+                <label for="unit_kerja_id">Unit Kerja  </label>: 
+                  <input id="unit_kerja_id" name="unit_kerja_id" value="" > [F3] (+ UnitKerja baru) 
+              </div>
+ 							<div > 
+ 								<label for="nama_singkat">Penerima SP2D  </label>
+                                :  <input id="penerima_id" name="penerima_id" value=""> [F1] (+ Penerima baru) //  {!! button_refresh('reload_penerima_id') !!}
+
+                              <!--   <DIV id="penerima_pihak_lain_view" style="min-width:30%; display:none;" >
+                                 <label  for="penerima_pihak_lain">
+                                                 Penerima Pihak ke Ketiga </label>
+                                                 :  <input id="penerima_pihak_lain" name="penerima_pihak_lain" value="" >
+                                 </DIV>
+ -->
+ 								<!-- :  <input  name="penerima" id="penerima_id"  class="easyui-combobox" style="width:20%" > -->
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Keperluan </label>: 
+ 								<textarea cols="40" name="keperluan" id="keperluan" rows=""></textarea>
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. SPM  </label>
+ 								:  <input class="easyui-validatebox textbox" type="text"  style="width:70%;" name="no_spm" id="no_spm" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. SPM </label>
+								:  <input  name="tgl_spm" id="tgl_spm" type="text"  required="required" style="width:131px">
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">SPM Diajukan  </label>
+ 								:  <input class="easyui-validatebox" type="text" name="spm_diajukan" id="spm_diajukan" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Potongan  </label>
+ 								:  <input class="easyui-validatebox" type="text" name="potongan" id="potongan" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">SPM yang Diminta </label>
+ 								:  <input class="easyui-validatebox" type="text" name="spm_benar" id="spm_benar" data-options="required:true" validType="bukanNol "  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. Pengantar </label>
+ 								:  <input    name="tgl_pengantar" id="tgl_pengantar" style="width:131px">
+                  	<label for="nama_singkat">Tgl. Diterima </label>
+     								<!-- :  <input class="easyui-validatebox" type="text" name="tgl_diterima" id="tgl_diterima" data-options="required:true"  /> -->
+     								:  <input    name="tgl_diterima" id="tgl_diterima" style="width:131px">
+
+
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. Agenda </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" name="no_agenda" style="width:70%;" id="no_agenda" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. Acc KASI / KASUBID </label>
+								:  <input  name="tgl_acc_kasi" id="tgl_acc_kasi"  style="width:131px">
+								<label for="nama_singkat">Tgl. Acc KABID  </label>
+								:  <input  name="tgl_acc_kabid" id="tgl_acc_kabid" style="width:131px">
+ 							</div>
+ 						 <div > 
+                <label for="nama_singkat">Tgl. Acc KADIS </label>
+                :  <input  name="tgl_acc_kadis" id="tgl_acc_kadis"  style="width:131px">
+              </div>
+              <div > 
+ 								<label for="status_terlambat">Status Keterlambatan  </label>:
+                <select id="status_terlambat" class="easyui-combobox" name="status_terlambat" style="width:200px;">
+                    <option value="TEPAT">TEPAT-WAKTU</option>
+                    <option value="TELAT">TERLAMBAT</option>
+                 
+                </select>
+ 							</div>
+ 							
+ 							<div > 
+ 								<label for="nama_singkat">Keterangan  </label>
+ 								:  <textarea cols="40" name="keterangan" id="keterangan" rows=""></textarea>
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Nama Dokumen </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" style="width:70%;"name="nama_dokumen" id="nama_dokumen" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">Tgl. Retensi  </label>
+ 								:  <input  name="tgl_referensi" id="tgl_referensi" style="width:131px" style="width:131px">
+ 								<label for="nama_singkat">No. Rak :  </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" name="no_rak" id="no_rak" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat">No. Boks  </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" name="no_boks" id="no_boks" data-options="required:true"  />
+ 								<label for="nama_singkat">No. Map </label>
+ 								:  <input class="easyui-validatebox textbox" type="text" name="no_map" id="no_map" data-options="required:true"  />
+ 							</div>
+ 							<div > 
+ 								<label for="nama_singkat"> </label>
+ 								<!-- :  <input type="checkbox" name="tambah" id="tambah"  /> Tambah Dokumen Lagi -->
+ 							</div>
+	 						<!-- Button============================================== -->
+ 						</div>
+	 						<div  style="background: none repeat scroll 0 0 #e0ecff;
+							    display: inline-block;
+							    height: 20px;
+							    left: 0;
+							    margin: 1px;
+							    padding: 10px;
+							    position: absolute;
+							    top: 58px;
+							    width: 94%;">
+                  <a id="simpan" href="#" disabled="" class="easyui-linkbutton" data-options="iconCls:'fa fa-floppy-o'">Simpan</a>
+                  <a id="update" href="#" disabled="" class="easyui-linkbutton" data-options="iconCls:'fa fa-check-square-o'">update</a>
+
+	 							<!-- <input type="submit"  id="simpan" value="Simpan" data-options="iconCls:'fa fa-floppy-o'"> -->
+	 							<!-- <input type="submit"  id="update" value="Update" data-options="iconCls:'fa fa-check-square-o'"> -->
+	 							<hr>
+	 						</div>
+
+
+ 					</form>
+
+ 				</div>
+
+
+ 			</div>
+
+ 		</div>
+
+ 	</div>
+ 	<div data-options="region:'east',title:' ',split:true" style="width:50%">
+        <!-- <input type="file" style="display:none; width: 100%; height:100%;" id="upload-image" multiple="multiple"></input> -->
+        <div id="upload" style="" class="drop-area">
+      <i class="fa fa-file-pdf-o fa-6" style=" font-size: 50px;  color: rgb(0,0,255);"></i>
+        <!-- <a>   Klik disini untuk menambakan gambar</a> -->
+
+            <!-- <div id="thumbnail" >
+
+
+              {{ $image or ''}}
+            
+               -->
+            </div>
+            <!-- <button value="" onclick="javascript:xxxxx()"> Buka PDF di endela baru</button> -->
+             <div id="pdf" >
+
+
+            
+              
+            </div>
+
+        </div>
+    
+ 	</div>
+ </div>
+
+
+<script>
+$.extend($.fn.validatebox.defaults.rules, {
+    bukanNol : {
+                validator: function(value,param){
+                  // console.log(value);
+                  var nilai=$('#spm_benar').numberbox('getValue')
+                  if (nilai >0 ) {
+                      // $('#potongan').focus();
+                       // $("#potongan").focus();
+
+                      return true
+                  };
+                  // console.log($('#spm_benar').numberbox('getValue'))
+                  // var txt = value;
+                  // var numb = txt.match(/\d/g);
+                  // numb = numb.join("");
+                  // alert (numb);​
+                  // console.log(parseFloat(value))
+                       // $("#potongan").focus();
+
+                  return false 
+        },
+        message: 'Periksa Lagi Nilai ini tergantung pada  "SPM diajukan harus lebih besar dari SPM Potongan !"'
+    }
+});
+
+
+
+function clearForm(){
+$('#entryDokSPPD').form('clear');
+}
+/* date box ==========================================*/
+    $('#tgl_spm , #tgl_pengantar , #tgl_diterima , #tgl_acc_kasi , #tgl_acc_kabid , #tgl_acc_kadis , #tgl_referensi').datebox({required:true
+      ,
+      formatter:function  (date) {
+        return DateIdFormatter(date)
+      }, 
+      parser: function  (date) {
+        return DateIdParser(date)
+      }
+
+    });
+    $('#tgl_sppd').datebox({
+    required:true
+    ,
+    onSelect: function(date){
+        // console.log(AddDate(date,0,'m'));
+        // console.log($('#mydate').datebox('getValue'));
+        var date_for_retensi=AddDate($('#tgl_sppd').datebox('getValue'), 15,'Y');
+        console.log(date_for_retensi);
+        $('#tgl_referensi').datebox({readonly:true}).datebox('setValue',date_for_retensi);
+        // console.log($('#mydate').datebox())
+        // console.log(AddDate(date));
+      } ,
+      onChange:function function_name (argument) {
+         var date_for_retensi=AddDate($('#tgl_sppd').datebox('getValue'), 15,'Y');
+        console.log(date_for_retensi);
+        $('#tgl_referensi').datebox({readonly:true}).datebox('setValue',date_for_retensi);
+      }, 
+      formatter:function  (date) {
+        return DateIdFormatter(date)
+      }, 
+      parser: function  (date) {
+        return DateIdParser(date)
+      }
+      
+    });
+
+    function DateIdFormatter(date){
+        var y = date.getFullYear();
+        var m = date.getMonth()+1;
+        var d = date.getDate();
+        return (d<10?('0'+d):d)+'/'+(m<10?('0'+m):m)+'/'+y;// ini perlu disesuaikan yang sesuai format yang diingninkan
+    }
+    function DateIdParser(s){
+        if (!s) return new Date();
+        var ss = (s.split('/'));// ini perlu disesuaikan yang sesuai format yang diingninkan
+        var y = parseInt(ss[0],10);
+        var m = parseInt(ss[1],10);
+        var d = parseInt(ss[2],10);
+        if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+            return new Date(d,m-1,y);// ini perlu disesuaikan yang sesuai format yang diingninkan
+        } else {
+            // return new Date(d,m,y);
+            return new Date();
+        }
+    }
+              function AddDate(oldDate, offset, offsetType, format) {
+                    console.log(' offset : '+offset);
+                    console.log('offsetType : '+offsetType);
+                    // console.log(typeof oldDate);
+                    // return false;
+                  if ( typeof oldDate == 'string') {
+                      //standart dd/mm/yyy
+                      console.log('type string');
+                      // parse date from string 
+                    var date   = parseInt(oldDate.substring(0,2));
+                    var month  = parseInt(oldDate.substring(3,5));
+                    var year   = parseInt(oldDate.substring(6,10));
+                      //buat ulang date 
+                      var new_date= new Date(year, month, date);
+
+                    var year = parseInt(new_date.getFullYear());
+                    var month = parseInt(new_date.getMonth());
+                    var date = parseInt(new_date.getDate());
+                    var hour = parseInt(new_date.getHours());
+                    // var date1 = new Date(yr1, mon1-1, dt1);
+                  }
+                  else{
+                    console.log('type object');
+
+                    var year = parseInt(oldDate.getFullYear());
+                    var month = parseInt(oldDate.getMonth());
+                    var date = parseInt(oldDate.getDate());
+                    var hour = parseInt(oldDate.getHours());
+                    
+                  }
+                  var newDate;
+                  console.log(typeof offsetType);
+
+                  if ( typeof offsetType == 'undefined') {
+                      console.log('offsetType kosong');
+                        newDate=oldDate;
+                  };
+
+                  switch (offsetType) {
+                      case "Y":
+                      case "y":
+                           newDate = new Date(year + offset, month, date, hour);
+                           break;
+                
+                       case "M":
+                       case "m":
+                           newDate = new Date(year, month + offset, date, hour);
+                           break;
+                
+                       case "D":
+                       case "d":
+                           newDate = new Date(year, month, date + offset, hour);
+                           break;
+                
+                       case "H":
+                       case "h":
+                           newDate = new Date(year, month, date, hour + offset);
+                           break;
+                   }
+                   // return newDate;            
+                   return newDate.getDate()+'/'+newDate.getMonth()+'/'+newDate.getFullYear();            
+           } 
+    $('#spm_diajukan, #potongan, #spm_benar').numberbox({
+        precision:2
+        ,groupSeparator:'.'
+        ,decimalSeparator:','
+        ,prefix:'Rp. '
+      });
+	var d = new Date();
+	var n = d.getFullYear(); 
+    $('#tahun').numberbox({
+        min:1945,
+        max:n,
+        precision:0
+    });
+   
+$('#potongan').numberbox({
+    value: 0,
+    onChange:function  (potongan,old) {
+           var ajukan= $('#spm_diajukan').numberbox('getValue');
+        // console.log(ajukan);
+        // console.log(parseFloat(potongan));
+       if (parseFloat(potongan) >= parseFloat(ajukan) ) {
+            // console.log('false');
+            $('#spm_benar').numberbox('setValue', 0);
+            $('#spm_diajukan').focus();
+            return false;
+        };
+        var jumlah = parseFloat(ajukan) - parseFloat(potongan); 
+        $('#spm_benar').numberbox('setValue', jumlah);
+    }
+
+})
+
+$('#spm_diajukan').numberbox({
+    value: 0,
+    onChange:function  (ajukan,old) {
+        var potongan=$('#potongan').numberbox('getValue');
+        // console.log(ajukan);
+        // console.log(potongan);
+
+        if (potongan >= ajukan ) {
+            // console.log('false');
+            $('#spm_benar').numberbox('setValue', 0);
+            $('#spm_diajukan').focus();
+            return false;
+        };
+        var jumlah = parseFloat(ajukan) - parseFloat(potongan); 
+        $('#spm_benar').numberbox('setValue', jumlah);
+    }
+
+})
+
+
+$('#spm_benar').numberbox({
+    value: 0,readonly:true,
+    onChange:function  (benar,old) {
+        // console.log(benar);
+    }
+
+})
+$('#no_sppd').textbox({
+    onChange:function  (newValue,old) {
+          var up= $(this).val().toUpperCase();
+          $('#no_sppd').textbox('setValue', up.toUpperCase());
+          $('#nama_dokumen').textbox({readonly:true}).textbox('setValue','ARSIPPROSESSP2D-'+up)
+          $('#no_map').textbox({readonly:true}).textbox('setValue',up)
+          $('#no_spm').textbox({readonly:true}).textbox('setValue',up.replace("SP2D", "SPM"))  
+          // $('#nama_dokumen').textbox({readonly:true}).textbox('setValue','ARSIPPROSESSP2D-');
+        
+    }
+
+})
+
+
+// $('#penerima_id').combobox({
+//     onChange:function  (newValue,old) {
+//           if (newValue==1) {
+//             $('#penerima_pihak_lain_view').show();
+//               return false;
+//           };
+        
+//             $('#penerima_pihak_lain_view').hide();
+//     }
+
+// })
+
+    $(function(){
+       
+       // $('#tambah').on('click', function(event) {
+       //  $( "input:checked" ).length
+       //  var x= $( "#tambah:checked" ).length;
+       //  // var x=$("#tambah").attr("checked") ? 1 : 0;
+       //  alert(x)
+       //  console.log(x);
+        
+       //   /* Act on the event */
+       // });
+        $('#update').bind('click', function(){
+          // $('#F-INPUT').form('disableValidation');
+            // $('#uploadx').fileupload('send', data);
+            // $('#fileupload').fileupload('send', {files: 'filesList'})
+                    var row = $('#contentCenter').datagrid('getSelected');
+                // console.log($('#id').val());return false;
+                    $('#F-INPUT').form('submit',{ url:'{{url('dokumens')}}/'+$('#id').val(),
+                                         onSubmit: function(param){
+                                          param._method = 'PATCH';
+                                      },
+                                            onSubmit: function(param){
+                                            // param.uploadx = $('#uploadx').serializeArray();
+                                            // param.fileupload = $('#fileupload').val();
+                                            // param.p2 = 'value2';
+                                            var isValid = $(this).form('validate');
+                                            if (!isValid){
+                                              $.messager.progress('close'); // hide progress bar while the form is invalid
+                                            }
+                                            return isValid;
+                                            },
+                                            success: function(result){
+
+                                                if (result.code ==  200 ){
+                                                    $.messager.show({  
+                                                        title: 'Status',  
+                                                        msg: 'Data SKPD Berhasil Dimasukkan !'  
+                                                    });
+                                                    // $('#this').dialog('close')
+                                                    $('#contentCenter').datagrid('reload');
+                                                }
+                                                else {
+                                                    $('#contentCenter').datagrid('reload');
+                                                    $.messager.show({  
+                                                        title: 'Status',  
+                                                        msg: result  
+                                                    });
+                                                } 
+                                            } 
+                                        });
+            });
+        $('#simpan').bind('click', function(){console.log('baruuuuu ');
+          // $('#F-INPUT').form('disableValidation');
+           $('#simpan').attr('disabled', 'disabled');
+              var row = $('#contentCenter').datagrid('getSelected');
+                  $('#F-INPUT').form('submit',{ url:'{{route('dokumens.store')}}',
+                                            onSubmit: function(param){
+                                              // param._token = 'PATCH';
+                                               // $('#simpan').attr('disabled', 'disabled');
+                                            var isValid = $(this).form('validate');
+                                            if (!isValid){
+                                              console.log('masuk');
+                                              $('#simpan').removeAttr('disabled');
+                                              $.messager.alert('Info', 'Ada form yang belum diisi( berwarna merah), <br> Silahkan isi terlebih dahulu', 'info');
+                                            }
+                                            // console.log('valid '+isValid);
+                                            // console.log(isValid);
+                                            return isValid; // return false will stop the form submission
+                                            },
+                              success: function(result){
+
+
+                                      $.get('{{route('token')}}', function(data) {
+
+                                              var cektambah=$( "#tambah:checked" ).length
+                                              // console.log(cektambah);
+                                              if (cektambah == 0) { 
+                                                  console.log('masuk on'+cektambah);
+                                                // $('#windowA').window('close');
+                                                $('#windowA').window('refresh','{{route('ajaxgrid', ['page' => 'eds'])}}')
+                                                  return false;
+                                              };
+                                                $('#simpan').removeAttr('disabled');
+                                            $('#F-INPUT').form('clear');
+                                            $("input:hidden[name=_token]").val(data);
+
+                                      });
+
+                                      if (result.code ==  200 ){
+                                        $.messager.show({  
+                                          title: 'Status',  
+                                          msg: 'Data SKPD Berhasil Dimasukkan !'  
+                                        });
+                                        // $('#this').dialog('close')
+                                        $('#contentCenter').datagrid('reload');
+                                      }
+                                      else {
+                                        $('#contentCenter').datagrid('reload');
+                                        $.messager.show({  
+                                          title: 'Status',  
+                                          msg: result  
+                                        });
+                                      } 
+                                      // console.log($('#tambah').val);
+                                      // if ($('#tambah').val) {};
+                                      // $('#windowA').window('close');
+                              } 
+                            });
+            });
+
+    });
+</script>
+
+<script>
+/*jslint unparam: true, regexp: true */
+/*global window, $ */
+
+$('#gambar').filebox({
+buttonText: 'Choose File',
+buttonAlign: 'left'
+})
+
+$.extend($.fn.filebox.defaults, {
+    onChange: function(newValue,oldValue){
+        console.log(oldValue);
+        // return jq.each(function(){
+        //     $(this).dialog('move', newposition);
+        // });
+    }
+});
+</script>

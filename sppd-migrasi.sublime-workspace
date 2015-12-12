@@ -1,0 +1,1611 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"base",
+				"base64_decode"
+			],
+			[
+				"nama",
+				"nama_skpd"
+			],
+			[
+				"e-mas",
+				"e-messager-show	e_masanger_show"
+			],
+			[
+				"dis",
+				"disabled	Event"
+			],
+			[
+				"d",
+				"dd	dd"
+			],
+			[
+				"get_cl",
+				"get_class_methods"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"foreach",
+				"description-Array.prototype.forEach()"
+			],
+			[
+				"scr",
+				"script	Tag"
+			],
+			[
+				"lo",
+				"lokasi_baru"
+			],
+			[
+				"sy",
+				"style	Attr"
+			],
+			[
+				"style",
+				"style	Attr"
+			],
+			[
+				"Rout",
+				"Route::get	Basic Route with Closure"
+			],
+			[
+				"e-",
+				"e-massager-alert	easyui massanger alert"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"do",
+				"do while()"
+			],
+			[
+				"key",
+				"keydown	.keydown()"
+			],
+			[
+				"e",
+				"e-massager-alert	easyui massanger alert"
+			],
+			[
+				"e-data",
+				"e-datagrid-setproperty	e-datagrid-setproperty"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"arra",
+				"arrayactions"
+			],
+			[
+				"COnfig",
+				"Config::get	Get the specified configuration value."
+			],
+			[
+				"Confi",
+				"Config"
+			],
+			[
+				"eac",
+				"each	$.each()"
+			],
+			[
+				"is",
+				"isArray(${0:Object})	Array"
+			],
+			[
+				"ea",
+				"each	$.each()"
+			],
+			[
+				"cons",
+				"console.log('$0');"
+			],
+			[
+				"e-dia",
+				"e-dialog-setproperty	e-dialog-setproperty"
+			],
+			[
+				"attr",
+				"attr	.attr() - single"
+			],
+			[
+				"sc",
+				"script	Tag"
+			],
+			[
+				"att",
+				"attr	.attr() - single"
+			],
+			[
+				"Edit",
+				"EditGroup"
+			],
+			[
+				"Tamba",
+				"TambahGroup"
+			],
+			[
+				"dialog",
+				"dialog-x"
+			],
+			[
+				"to",
+				"toArray"
+			],
+			[
+				"gr",
+				"group"
+			],
+			[
+				"dx",
+				"dx-group"
+			],
+			[
+				"a",
+				"attr"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"INput",
+				"Input::all	Retrieve all Inputs"
+			],
+			[
+				"e-di",
+				"e-dialog-setproperty	e-dialog-setproperty"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"e-da",
+				"e-datagrid-setproperty	e-datagrid-setproperty"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"Con",
+				"controller"
+			],
+			[
+				"sty",
+				"style	Attr"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"inp",
+				"inp:radio	HTML - Input:radio"
+			],
+			[
+				"in",
+				"inp:radio	HTML - Input:radio"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"list",
+				"listAkses"
+			],
+			[
+				"arr",
+				"arr_id"
+			],
+			[
+				"PRINT",
+				"print_r"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"debug",
+				"debug_print_backtrace"
+			],
+			[
+				"get_",
+				"get_class"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/FormRequests/DokumensUpdateRequest.php",
+			"settings":
+			{
+				"buffer_size": 2129,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/easy/content/lds.blade.php",
+			"settings":
+			{
+				"buffer_size": 34250,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/SentryAdminAccess.php",
+			"settings":
+			{
+				"buffer_size": 6722,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/FormRequests/DokumensCreateRequest.php",
+			"settings":
+			{
+				"buffer_size": 2266,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Routing\\Router;\n\nuse App\\Dokumens;\nuse App\\Jenissppd;\nuse App\\Skpd;\nuse App\\File;\n\nuse App\\Laporan;\n\nEvent::listen('illuminate.query', function($query)\n{\n  // echo \"<pre>\";\n    // var_dump($query);  	\n});\n/*\n|--------------------------------------------------------------------------\n| Application Routes \n|--------------------------------------------------------------------------\n|\n| Here is where you can register all of the routes for an application.\n| It's a breeze. Simply tell Laravel the URIs it should respond to\n| and give it the controller to call when that URI is requested.\n|\n*/\n// echo format_rupiah(190898943928248029849024829048);\n// echo UPPER('aGUS Pergi ke sekolah**(0');\n// dd();\nfunction easy($file='')\n{\n	return view('easy.layout.'.$file);\n}\nfunction easyc($file='', $id=[])\n{\n	return view('easy.content.'.$file, $id);\n}\n\n// Route::get('/', function () {\n//     return view('welcome');\n// });\n\n// dd($_ENV);\n// dd();\n// echo phpinfo();\n// dd(app()->environment());\n\n/* DEMO ROUTE==========================================================================================*/\nif (app()->environment()=='demo') {echo 'demo'; \n	$router->get('/', function() {\n		// $url = route('prefAdmin', ['id' => 1]);\n		// dd($url);\n	});\n	$router->get('db/', function() use ($router) {\n		// $results = \\Db::select(\"SELECT * FROM dokumen\");\n		// dd(app('db'));\n		// var_dump($results[0]);\n	});\n}\n/* PRODUCTION ROUTE==========================================================================================*/\nif (app()->environment()=='production') {\n\n		Route::get('sx', function(Request $request)\n		{\n			// echo \"<pre>\";\n			$bag = Session::getMetadataBag();\n		    $pesan=['error'=>['Peringatan : File PDF tidak di atur dengan benar !', 'Terjadi kesalahan upload File PDf '], 'succes'=>'Sukses mengupload Dokumen PDF '];\n		    // dd(session()->all());\n		    echo date('m/d/Y H:i:s', time());\n		    	// dd( session()->activity());\n		    	// dd(time());\n		    	// dd($bag);\n		   //  print_r($pesan);\n			  // dd($request->session());\n			  // dd($request->session()->put('key', 'value'));\n			  // dd($request->session()->get('key'));\n			// session(['key' => 'value']);\n			// dd(session('key' ));\n\n			       //\n		\n		});\n		// rename file pdf \n		Route::get('/ren', function(Request $request)\n		{\n			$entry = File::where('dokumen_id','=',$id)->first();\n			dd($entry);\n			dd('');\n			// MIGRASI/ MENGCOPU FILE PDF  DARI ROOT DOKUMEN KE FOLDER DOKUMEN SESUAI DENGAN FIELD {dir}TABLE FILE \n\n			 // dd(Dokumens::with('file')->get()->toArray());\n			$dirs = \\Storage::allDirectories();\n			 			// dd($files);\n			 $dokumens=Dokumens::with('file','skpd')->get()->toArray();\n			 // $os = array(\"Mac\", \"NT\", \"Irix\", \"Linux\"); // if (in_array(\"Irix\", $os)) {//     echo \"Got Irix\"; // } // if (in_array(\"mac\", $os)) {//     echo \"Got mac\"; // } // dd($dokumens); $awalan_nama_dokumen='';\n			 $pesan= '';\n			 foreach ($dokumens as $key => $dokumen) {\n\n				 	$dir=str_slug( str_replace('-', ' ', $dokumen['no_boks']));\n			 			if (in_array($dir, $dirs)) {\n			 					// handle FIle db\n			 					if ($dokumen['file'] ) {\n			 						// if (stripos($dokumen['file'], 'ARSIPPROSESSP2D') === false ) {\n			 							\n			 						// }\n									// echo 'proses dokumen SP2D'.$dokumen['file']['filename'].' dari '.$dokumen['file']['filename'].' ke '.$dokumen['nama_dokumen'].'-'.$dokumen['file']['filename'].\" <br> \\n\";\n									\n			 							$oldFileName=$dokumen['file']['filename'];\n			 							$newNameFile=(stripos($dokumen['file']['filename'] , 'ARSIPPROSESSP2D') === false)?$dokumen['nama_dokumen'].'-'.$oldFileName: $oldFileName;\n			 							// $newNameFile=$dokumen['nama_dokumen'].'-'.$oldFileName;\n			 							// handle soft file pdf \n			 							if (Storage::exists($oldFileName)) {\n												// cek file  di lokasi baru \n												if(!Storage::exists($dir.'/'. $newNameFile)){\n			 											Storage::copy($oldFileName,  $dir.'/'. $newNameFile);\n		 											}\n	 											else{\n	 												echo 'file sudah ada ' ;\n	 											}\n			 										// update file db\n			 										// manipulasi nama file dengan nama baru\n			 										$dokumen['file']['nama_baru']=$newNameFile;\n			 										$dokumen['file']['dir']=$dir;\n	 												$id=$dokumen['file']['id'];\n	 												// unset($dokumen['file']['id']);\n			 										File::find($id)->update($dokumen['file']);\n\n			 								$pesan.=  'file dokumen'.$dokumen['nama_dokumen'].'dengan File PDF '.$dokumen['file']['filename'].'/ dipindah ke '.$dir.'/'.$dokumen['file']['nama_baru'].\" Ok <br> \\n\";\n\n\n			 							}\n\n			 					}\n			 					elseif(!$dokumen['file']){\n			 						echo 'file dokumen'.$dokumen['nama_dokumen'].'dengan File PDF '.$dokumen['file']['filename'].'/ nama baru '.$dokumen['file']['nama_baru'].\" tidak adan filenya <br> \\n\";\n			 					}\n			 					\n\n			 					\n			 			}\n			 			elseif (!in_array($dir, $dirs)) {\n			 					//buat direktori dari no boks\n			 					\\Storage::makeDirectory($dir);\n			 							// handle FIle db\n									// echo 'proses dokumen SP2D'.$dokumen['file']['filename'].' dari '.$dokumen['file']['filename'].' ke '.$dokumen['nama_dokumen'].'-'.$dokumen['file']['filename'].\"<br> \\n\";\n			 							\n			 							if ($dokumen['file'] ) {\n			 								// echo 'proses file ';\n			 									$oldFileName=$dokumen['file']['filename'];\n			 									$newNameFile=(stripos($dokumen['file']['filename'] , 'ARSIPPROSESSP2D') === false)?$dokumen['nama_dokumen'].'-'.$oldFileName: $oldFileName;\n			 									// $newNameFile=$dokumen['nama_dokumen'].'-'.$oldFileName;\n			 										// echo 'xxxx';\n			 									// handle soft file pdf \n			 									if (Storage::disk()->exists($oldFileName)) {\n			 											// cek file  di lokasi baru \n			 											if(!Storage::exists($dir.'/'. $newNameFile)){\n					 											Storage::copy($oldFileName,  $dir.'/'. $newNameFile);\n				 											}\n				 											else{\n				 												echo 'file sudah ada' ;\n				 											}\n			 												// update file db\n			 												// manipulasi nama file dengan nama baru\n			 												$dokumen['file']['nama_baru']=$newNameFile;\n					 										$dokumen['file']['dir']=$dir;\n\n			 												// dd($dokumen['file']);\n			 												$id=$dokumen['file']['id'];\n			 												// unset($dokumen['file']['id']);\n			 												$file = File::find($id)->update($dokumen['file']);\n			 								$pesan.=  'file dokumen'.$dokumen['nama_dokumen'].'dengan File PDF '.$dokumen['file']['filename'].'/ dipindah ke '.$dir.'/'.$dokumen['file']['nama_baru'].\" Ok <br> \\n\";\n\n\n			 									}\n\n			 							}\n			 							elseif(!$dokumen['file']){\n			 								echo 'file dokumen'.$dokumen['nama_dokumen'].'dengan File PDF '.$dokumen['file']['filename'].'/ nama baru '.$dokumen['file']['nama_baru'].\" tidak adan filenya <br> \\n\";\n			 							}\n			 							\n\n			 			}\n					// $contents = Storage::get('file.jpg');\n					// $exists = Storage::disk('s3')->exists('file.jpg');\n					// $size = Storage::size('file1.jpg');\n					// $time = Storage::lastModified('file1.jpg');\n					// \n					// \n			 		// Storage::copy('old/file1.jpg', 'new/file1.jpg');\n			 		// Storage::put('file.jpg', $contents);\n					// Storage::put('file.jpg', $resource);\n					// Storage::move('old/file1.jpg', 'new/file1.jpg');\n					// \n					// Storage::prepend('file.log', 'Prepended Text');\n					// Storage::append('file.log', 'Appended Text');\n					// Storage::delete('file.jpg');\n					// Storage::delete(['file1.jpg', 'file2.jpg']);\n					// ===========================================================\n					// $files = Storage::files($directory);\n					// $files = Storage::allFiles($directory);\n					// \n			 		// $directories = Storage::directories($directory);\n			 		// Recursive...\n			 		// $directories = Storage::allDirectories($directory);\n					// Storage::deleteDirectory($directory);\n					// \n					\n			 		// Storage::makeDirectory();\n			 }\n			 dd($pesan);\n			 return $pesan;\n			\n		});\n	// echo 'local';\n	Route::group(['middleware' => 'sentry.admin'], function ($router) {\n	  \n			$router->get('/', ['as'=>'home',function() {\n					return view('easy.layout.app', ['xcontent'=> easyc('home')]);\n				}]);\n			$router->get('grid/{page}', ['as'=>'pagegrid',function($page='home') {\n					return view('easy.layout.app', ['xcontent'=> easyc($page)]);\n				}]);\n			$router->get('ajax/{page}/{grida?}/{gridb?}/{gridc?}', ['as'=>'ajaxgrid', function($page='home', $grida='grida', $gridb='gridb', $gridc='gridc') {\n					// $Router= new Router();\n					$idGrid=[\n					'grida'=> $grida,\n					'gridb'=> $gridb,\n					'gridc'=> $gridc,\n					];\n					$request= new Request();\n							return easyc($page, $idGrid);\n			\n				}]);\n			$router->get('/homec', function() {\n				return view('easy.layout.app', ['xcontent'=> view('easy.layout.xcontent')]);\n\n			});\n			Route::resource('skpd', 'SkpdController');\n			Route::controller('skpd-Data', 'SkpdController', [\n			    'anyData' => 'skpd.data',\n			    'anyCombobox' => 'suplay.skpd.combobox',\n			]);\n			Route::resource('dokumens', 'DokumensController');\n			Route::controller('dokumens-Data', 'DokumensController', [\n			    'anyData' => 'dokumens.data',\n			]);\n			Route::resource('jenis-sppd', 'JenissppdController');\n			Route::controller('jenis-sppd-data', 'JenissppdController', [\n			    'anyData' => 'jenis-sppd.data',\n			    'anyCombobox' => 'suplay.jenis-sppd.combobox',\n			]);\n			Route::resource('unit-kerja', 'UnitkerjaController');\n			Route::controller('unit-kerja-data', 'UnitkerjaController', [\n			    'anyData' => 'unit-kerja.data',\n			     'anyCombobox' => 'suplay.unit-kerja.combobox'\n			]);\n\n\n			Route::resource('penerima', 'PenerimaController');\n			Route::controller('penerima-Data', 'PenerimaController', [\n			    'anyData' => 'penerima.data',\n			    'anyCombobox' => 'suplay.penerima.combobox',\n			]);\n// -------------------------------------------------------------------------------------------------------\n			Route::get('api/csrf', ['as'=>'token',function() {\n			    return csrf_token();\n			}]);\n/*  file image==============================================================================================================================*/\n			Route::get('file', 'FileController@index');\n			// Route::get('file/get/{filename}', [\n			Route::get('file/get/{dir}/{filename}', [\n				'as' => 'file.get', 'uses' => 'FileController@get']);\n			Route::post('file/add',[ \n			        'as' => 'file.add', 'uses' => 'FileController@add']);\n\n			Route::post('pdf/{jenis}', ['as'=>'pdf',function(Request $req, $jenis)\n			{	$view_laporan=[\n				'tahun'=>'laporan_menurut_tahun_periode',\n				'jenis_sppd'=>'laporan_menurut_jenis_sppd',\n				'jenis_skpd'=>'laporan_menurut_jenis_skpd_tahun',\n				'per_skpd_tahun'=>'laporan_menurut_per_skpd_tahun'\n				];\n\n				// PDF::SetMargins(40, 20, 30, 8);//lap1 file paling bawah \n				/**\n				 * This is the class constructor.\n				 * It allows to set up the page format, the orientation and the measure unit used in all the methods (except for the font sizes).\n				 * \n				 * IMPORTANT: Please note that this method sets the mb_internal_encoding to ASCII, so if you are using the mbstring module functions with TCPDF you need to correctly set/unset the mb_internal_encoding when needed.\n				 * \n				 * @param $orientation (string) page orientation. Possible values are (case insensitive):<ul><li>P or Portrait (default)</li><li>L or Landscape</li><li>'' (empty string) for automatic orientation</li></ul>\n				 * @param $unit (string) User measure unit. Possible values are:<ul><li>pt: point</li><li>mm: millimeter (default)</li><li>cm: centimeter</li><li>in: inch</li></ul><br />A point equals 1/72 of inch, that is to say about 0.35 mm (an inch being 2.54 cm). This is a very common unit in typography; font sizes are expressed in that unit.\n				 * @param $format (mixed) The format used for pages. It can be either: one of the string values specified at getPageSizeFromFormat() or an array of parameters specified at setPageFormat().\n				 * @param $unicode (boolean) TRUE means that the input text is unicode (default = true)\n				 * @param $encoding (string) Charset encoding (used only when converting back html entities); default is UTF-8.\n				 * @param $diskcache (boolean) DEPRECATED FEATURE\n				 * @param $pdfa (boolean) If TRUE set the document to PDF/A mode.\n				 * @public\n				 * @see getPageSizeFromFormat(), setPageFormat()\n				 */\n				// public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false, $pdfa=false)\n				// PDF::AddPage('L', 'A4');\n				// $pdf=new PDF(); // tidak jalan \n				if ($jenis=='per_skpd_tahun' || $jenis=='jenis_skpd' ) {\n					Config::set('laravel-tcpdf.page_orientation', 'L');\n				}\n				// $pdf=app()->make('tcpdf');\n				// PDF::SetCreator('Achmadi');\n				PDF::SetAuthor('Achmadi');\n				PDF::SetTitle('Laporan');\n				PDF::SetSubject('Laporan');\n				PDF::SetKeywords('TCPDF, PDF, example, test, guide');\n\n				PDF::SetHeaderData('', '', '', 'generated by Sir Achmadi ..: diahmad330@gmail.com :.. ');\n				PDF::setHeaderFont(Array('', '', '7'));\n				// $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));\n\n				PDF::SetMargins(20, 10, 20, 10);\n				// PDF::SetTitle('Hello World');\n\n				PDF::AddPage();\n\n				PDF::SetFont('helvetica', '', 8);\n				// PDF::Write(0, 'Hello World');\n				// $table= view('laporan.laporan_menurut_jenis_skpd_tahun');\n				$lap=new Laporan($req);\n				$data_lap= $lap->$jenis();\n				// dd($data_lap->get('tahun'));\n				$table= view('laporan.'.$view_laporan[$jenis], $data_lap);\n				// return $table;\n				// $table= view('laporan.laporan_menurut_skpd_tahun');\n				// $table= view('laporan.laporan_menurut_tahun_periode');\n				// return view('laporan.laporan_menurut_jenis_skpd_tahun');\n				PDF::writeHTML($table, true, false, false, false, '');\n				\n				\n				// $header=view('laporan.header');\n				// 	PDF::SetFont('helvetica', '', 12);\n				// 	PDF::writeHTML($header, true, false, false, false, '');\n				// $isi=view('laporan.isi');\n				// 	PDF::SetFont('helvetica', '', 8);\n				// 	PDF::writeHTML($isi, true, false, false, false, '');\n				// $foot=view('laporan.foot');\n				// 	PDF::SetFont('helvetica', '', 8);\n				// 	PDF::writeHTML($foot, true, false, false, false, '');\n\n				// PDF::Output('hello_world.pdf');\n				PDF::Output($view_laporan[$jenis]);\n				\n			}]);\n		\n			function lapgrid($view='')\n			{\n				return view('laporan.grid.'.$view);\n			}\n			Route::group(['prefix' => 'lap_preview'], function()\n			{	\n				Route::get('grid/{grid}', ['as'=>'lap.prev.grid',function($grid)\n					{	\n						// return $grid;\n							return  lapgrid($grid);\n					}]);\n\n				Route::any('data/{data}',['as'=>'lap.prev.data', function(Request $req,$data)\n					{\n						$lap=new Laporan($req);\n						return $lap->$data();\n						\n					}]);\n				Route::any('tahun', ['as'=>'tahun',function()\n				{\n					$tahun=array();\n					$key=0;\n					for ($i=1970; $i <= 2050  ; $i++) { \n						$tahun[$key]['id']=$i;\n						$tahun[$key]['textXX']=$i.' ';\n						// $tahun[$key]['textXXggg']=$i;\n						$key++;\n					}\n					return $tahun;\n\n				}]);\n			  \n			});\n	});\n\n}\n// {{route('profile', ['page' => ''])}}\n/* LOCAL AND DEVELOPMENT ROUTE==========================================================================================*/\n\nif (app()->environment()=='local') {\n		//  echo isDateId('27/1/2009');\n		//  echo '<br>';\n		// echo date(\"jS F, Y\", strtotime('10/12/2009')); \n		// dd(strtotime('10/12/2009'));\n	// echo 'local';\n// echo \"before : \";\n// echo date(\"Y-m-d H:i:s\");\n// $tanggal = date(\"d F Y\");\n// echo $tanggal;\n// echo \"after  : \";\n// date_default_timezone_set('Asia/Jakarta');\n// $tanggalX = date(\"d F Y\");\n// echo $tanggalX.'<br>';\n// echo date(\"Y-m-d H:i:s\");\n\n// 	dd('timezone ');\n	Route::get('sx', function(Request $request)\n			{\n\n				// echo \"<pre>\";\n				$bag = Session::getMetadataBag();\n			    $pesan=['error'=>['Peringatan : File PDF tidak di atur dengan benar !', 'Terjadi kesalahan upload File PDf '], 'succes'=>'Sukses mengupload Dokumen PDF '];\n			    // dd(session()->all());\n			    echo date('m/d/Y H:i:s', time());\n			    	// dd( session()->activity());\n			    	// dd(time());\n			    	// dd($bag);\n			   //  print_r($pesan);\n				  // dd($request->session());\n				  // dd($request->session()->put('key', 'value'));\n				  // dd($request->session()->get('key'));\n				// session(['key' => 'value']);\n				// dd(session('key' ));\n\n				       //\n			\n			});\n			// rename file pdf \n			Route::get('/ren', function(Request $request)\n			{\n				// $entry = File::where('dokumen_id','=',91)->first();\n				// // echo str_replace('/', '-', $entry->dokumen->no_sppd);\n				// $entry->nama_baru=!empty($entry->nama_baru)?$entry->nama_baru:str_replace('/', '-', $entry->dokumen->no_sppd).'-'.$entry->filename;\n				// print_r($entry->nama_baru);\n				// dd($entry);\n\n				// MIGRASI/ MENGCOPU FILE PDF  DARI ROOT DOKUMEN KE FOLDER DOKUMEN SESUAI DENGAN TABLE FILE \n\n				 // dd(Dokumens::with('file')->get()->toArray());\n				$dirs = \\Storage::allDirectories();\n				 			// dd($files);\n				 $dokumens=Dokumens::with('file','skpd')->get();\n				 // $os = array(\"Mac\", \"NT\", \"Irix\", \"Linux\"); // if (in_array(\"Irix\", $os)) {//     echo \"Got Irix\"; // } // if (in_array(\"mac\", $os)) {//     echo \"Got mac\"; // } // dd($dokumens); $awalan_nama_dokumen='';\n				 $sukses=[];\n				 $gagal=[];\n				 foreach ($dokumens as $key => $dokumen) {\n\n					 	// $dir=str_slug( str_replace('-', ' ', $dokumen->no_boks));\n\n					 	$dir=$dokumen->no_boks;\n				 			if (in_array($dir, $dirs)) {\n				 					// handle FIle db\n				 					if ($dokumen->file ) {\n				 						// if (stripos($dokumen->file, 'ARSIPPROSESSP2D') === false ) {\n				 							\n				 						// }\n										// echo 'proses dokumen SP2D'.$dokumen->file->filename.' dari '.$dokumen->file->filename.' ke '.$dokumen->nama_dokumen.'-'.$dokumen->file->filename.\" <br> \\n\";\n											$nama_file= str_slug( str_replace('/', '-', $dokumen->no_sppd)).'-'.str_slug( str_replace('/', '-',  $dokumen->nama_dokumen)).'-'.$dokumen->file->filename;\n				 							$oldFileName=$dokumen->file->filename;\n				 							// $newNameFile=(stripos($dokumen->file->filename , 'ARSIPPROSESSP2D') == false)?$dokumen->nama_dokumen.'-'.$oldFileName: $oldFileName;\n				 							$newNameFile=$nama_file;\n				 							// $newNameFile=$dokumen->nama_dokumen.'-'.$oldFileName;\n				 							// handle soft file pdf \n				 							if (Storage::disk()->exists($oldFileName)) {\n													// cek file  di lokasi baru \n													if(!Storage::exists($dir.'/'. $newNameFile)){\n				 											Storage::copy($oldFileName,  $dir.'/'. $newNameFile);\n			 											}\n			 											else{\n			 												echo 'file sudah ada ' ;\n			 											}\n				 										// update file db\n				 										// manipulasi nama file dengan nama baru\n				 										$dokumen->file->nama_baru=$newNameFile;\n				 										$dokumen->file->dir=$dir;\n				 										$dokumen->file->save();\n		 												// $id=$dokumen->file->id;\n		 												// unset($dokumen->file->id);\n				 										// File::find($id)->update($dokumen->file);\n				 										if (Storage::disk()->exists('catatan/log.txt')) {\n															Storage::append('catatan/log.txt', 'sukses'.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n				 											\n				 										}\n				 										else{\n				 											// \\Storage::makeDirectory('catatan/log.txt');\n				 											Storage::put('catatan/log.txt', 'sukses'.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n				 										}\n\n				 							}\n										if (Storage::disk()->exists('catatan/log.txt')) {\n											Storage::append('catatan/log.txt', 'Sukses : '.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n ');\n											\n										}\n										else{\n											// \\Storage::makeDirectory('catatan/');\n											Storage::put('catatan/log.txt', 'Sukses : '.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n '.'\\n');\n										}\n\n				 					}\n				 					elseif(!$dokumen->file){\n				 						echo 'file sudah dimodif <br>'.\"\\n\";\n				 					}\n				 					\n\n				 					\n				 			}\n				 			elseif (!in_array($dir, $dirs)) {\n				 					//buat direktori dari no boks\n				 					\\Storage::makeDirectory($dir);\n				 							// handle FIle db\n										// echo 'proses dokumen SP2D'.$dokumen->file->filename.' dari '.$dokumen->file->filename.' ke '.$dokumen->nama_dokumen.'-'.$dokumen->file->filename.\"<br> \\n\";\n				 							\n				 							if ($dokumen->file ) {\n				 								// echo 'proses file ';\n													$nama_file= str_slug( str_replace('/', '-', $dokumen->no_sppd)).'-'.str_slug( str_replace('/', '-',  $dokumen->nama_dokumen)).'-'.$dokumen->file->filename;\n\n				 									$oldFileName=$dokumen->file->filename;\n				 									// $newNameFile=(stripos($dokumen->file->filename , 'ARSIPPROSESSP2D') === false)?$dokumen->nama_dokumen.'-'.$oldFileName: $oldFileName;\n				 									$newNameFile=$nama_file;\n				 									// $newNameFile=$dokumen->nama_dokumen.'-'.$oldFileName;\n				 										// echo 'xxxx';\n				 									// handle soft file pdf \n				 									if (Storage::disk()->exists($oldFileName)) {\n				 											// cek file  di lokasi baru \n				 											if(!Storage::exists($dir.'/'. $newNameFile)){\n						 											Storage::copy($oldFileName,  $dir.'/'. $newNameFile);\n					 											}\n					 											else{\n					 												echo 'file sudah ada ' ;\n					 											}\n				 												// update file db\n				 												// manipulasi nama file dengan nama baru\n				 												$dokumen->file->nama_baru=$newNameFile;\n				 												$dokumen->file->dir=$dir;\n				 												// dd($dokumen->file);\n				 												$id=$dokumen->file->id;\n				 												// unset($dokumen->file->id);\n				 												$dokumen->file->save();\n				 												// $file = File::find($id)->update($dokumen->file);\n				 										// File::find($id)->update($dokumen->file);\n				 										if (Storage::disk()->exists('catatan/log.txt')) {\n															Storage::append('catatan/log.txt', 'sukses : '.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n				 											\n				 										}\n				 										else{\n				 											// \\Storage::makeDirectory('catatan/log.txt');\n				 											Storage::put('catatan/log.txt', 'sukses : '.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n				 										}\n\n				 									}\n\n				 							}\n				 							elseif(!$dokumen->file){\n\n		 										if (Storage::disk()->exists('catatan/log.txt')) {\n													Storage::append('catatan/log.txt', 'gagal :'.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n		 											\n		 										}\n		 										else{\n		 											// \\Storage::makeDirectory('catatan/log.txt');\n		 											Storage::put('catatan/log.txt', 'gagal : '.$dokumen->id.' -> '.$dokumen->no_sppd.'\\n');\n		 										}\n					 								// echo 'file sudah dimodif <br>'.\"\\n\";\n				 							}\n				 							\n\n				 			}\n						// $contents = Storage::get('file.jpg');\n						// $exists = Storage::disk('s3')->exists('file.jpg');\n						// $size = Storage::size('file1.jpg');\n						// $time = Storage::lastModified('file1.jpg');\n						// \n						// \n				 		// Storage::copy('old/file1.jpg', 'new/file1.jpg');\n				 		// Storage::put('file.jpg', $contents);\n						// Storage::put('file.jpg', $resource);\n						// Storage::move('old/file1.jpg', 'new/file1.jpg');\n						// \n						// Storage::prepend('file.log', 'Prepended Text');\n						// Storage::append('file.log', 'Appended Text');\n						// Storage::delete('file.jpg');\n						// Storage::delete(->file1.jpg', 'file2.jpg']);\n						// ===========================================================\n						// $files = Storage::files($directory);\n						// $files = Storage::allFiles($directory);\n						// \n				 		// $directories = Storage::directories($directory);\n				 		// Recursive...\n				 		// $directories = Storage::allDirectories($directory);\n						// Storage::deleteDirectory($directory);\n						// \n						\n				 		// Storage::makeDirectory();\n				 			// dd($dokumen);\n				 			// exit('masukkk');\n				 }\n				\n			});\n		// echo 'local';\n		Route::group(['middleware' => 'sentry.admin'], function ($router) {\n		  \n				$router->get('/', ['as'=>'home',function() {\n						return view('easy.layout.app', ['xcontent'=> easyc('home')]);\n					}]);\n				$router->get('grid/{page}', ['as'=>'pagegrid',function($page='home') {\n						return view('easy.layout.app', ['xcontent'=> easyc($page)]);\n					}]);\n				$router->get('ajax/{page}/{grida?}/{gridb?}/{gridc?}', ['as'=>'ajaxgrid', function($page='home', $grida='grida', $gridb='gridb', $gridc='gridc') {\n						// $Router= new Router();\n						$idGrid=[\n						'grida'=> $grida,\n						'gridb'=> $gridb,\n						'gridc'=> $gridc,\n						];\n						$request= new Request();\n								return easyc($page, $idGrid);\n				\n					}]);\n				$router->get('/homec', function() {\n					return view('easy.layout.app', ['xcontent'=> view('easy.layout.xcontent')]);\n\n				});\n				Route::resource('skpd', 'SkpdController');\n				Route::controller('skpd-Data', 'SkpdController', [\n				    'anyData' => 'skpd.data',\n				    'anyCombobox' => 'suplay.skpd.combobox',\n				]);\n				Route::resource('dokumens', 'DokumensController');\n				Route::controller('dokumens-Data', 'DokumensController', [\n				    'anyData' => 'dokumens.data',\n				]);\n				Route::resource('jenis-sppd', 'JenissppdController');\n				Route::controller('jenis-sppd-data', 'JenissppdController', [\n				    'anyData' => 'jenis-sppd.data',\n				    'anyCombobox' => 'suplay.jenis-sppd.combobox',\n				]);\n				Route::resource('unit-kerja', 'UnitkerjaController');\n				Route::controller('unit-kerja-data', 'UnitkerjaController', [\n				    'anyData' => 'unit-kerja.data',\n				     'anyCombobox' => 'suplay.unit-kerja.combobox'\n				]);\n\n\n				Route::resource('penerima', 'PenerimaController');\n				Route::controller('penerima-Data', 'PenerimaController', [\n				    'anyData' => 'penerima.data',\n				    'anyCombobox' => 'suplay.penerima.combobox',\n				]);\n	// -------------------------------------------------------------------------------------------------------\n				Route::get('api/csrf', ['as'=>'token',function() {\n				    return csrf_token();\n				}]);\n	/*  file image==============================================================================================================================*/\n				Route::get('file', 'FileController@index');\n				// Route::get('file/get/{filename}', [\n				Route::get('file/get/{id}', [\n					'as' => 'file.get', 'uses' => 'FileController@get']);\n				Route::post('file/add',[ \n				        'as' => 'file.add', 'uses' => 'FileController@add']);\n\n				Route::post('pdf/{jenis}', ['as'=>'pdf',function(Request $req, $jenis)\n				{	$view_laporan=[\n					'tahun'=>'laporan_menurut_tahun_periode',\n					'jenis_sppd'=>'laporan_menurut_jenis_sppd',\n					'jenis_skpd'=>'laporan_menurut_jenis_skpd_tahun',\n					'per_skpd_tahun'=>'laporan_menurut_per_skpd_tahun'\n					];\n\n					// PDF::SetMargins(40, 20, 30, 8);//lap1 file paling bawah \n					/**\n					 * This is the class constructor.\n					 * It allows to set up the page format, the orientation and the measure unit used in all the methods (except for the font sizes).\n					 * \n					 * IMPORTANT: Please note that this method sets the mb_internal_encoding to ASCII, so if you are using the mbstring module functions with TCPDF you need to correctly set/unset the mb_internal_encoding when needed.\n					 * \n					 * @param $orientation (string) page orientation. Possible values are (case insensitive):<ul><li>P or Portrait (default)</li><li>L or Landscape</li><li>'' (empty string) for automatic orientation</li></ul>\n					 * @param $unit (string) User measure unit. Possible values are:<ul><li>pt: point</li><li>mm: millimeter (default)</li><li>cm: centimeter</li><li>in: inch</li></ul><br />A point equals 1/72 of inch, that is to say about 0.35 mm (an inch being 2.54 cm). This is a very common unit in typography; font sizes are expressed in that unit.\n					 * @param $format (mixed) The format used for pages. It can be either: one of the string values specified at getPageSizeFromFormat() or an array of parameters specified at setPageFormat().\n					 * @param $unicode (boolean) TRUE means that the input text is unicode (default = true)\n					 * @param $encoding (string) Charset encoding (used only when converting back html entities); default is UTF-8.\n					 * @param $diskcache (boolean) DEPRECATED FEATURE\n					 * @param $pdfa (boolean) If TRUE set the document to PDF/A mode.\n					 * @public\n					 * @see getPageSizeFromFormat(), setPageFormat()\n					 */\n					// public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false, $pdfa=false)\n					// PDF::AddPage('L', 'A4');\n					// $pdf=new PDF(); // tidak jalan \n					if ($jenis=='per_skpd_tahun' || $jenis=='jenis_skpd' ) {\n						Config::set('laravel-tcpdf.page_orientation', 'L');\n					}\n					// $pdf=app()->make('tcpdf');\n					// PDF::SetCreator('Achmadi');\n					PDF::SetAuthor('Achmadi');\n					PDF::SetTitle('Laporan');\n					PDF::SetSubject('Laporan');\n					PDF::SetKeywords('TCPDF, PDF, example, test, guide');\n\n					PDF::SetHeaderData('', '', '', 'generated by Sir Achmadi ..: diahmad330@gmail.com :.. ');\n					PDF::setHeaderFont(Array('', '', '7'));\n					// $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));\n\n					PDF::SetMargins(20, 10, 20, 10);\n					// PDF::SetTitle('Hello World');\n\n					PDF::AddPage();\n\n					PDF::SetFont('helvetica', '', 8);\n					// PDF::Write(0, 'Hello World');\n					// $table= view('laporan.laporan_menurut_jenis_skpd_tahun');\n					$lap=new Laporan($req);\n					$data_lap= $lap->$jenis();\n					// dd($data_lap->get('tahun'));\n					$table= view('laporan.'.$view_laporan[$jenis], $data_lap);\n					// return $table;\n					// $table= view('laporan.laporan_menurut_skpd_tahun');\n					// $table= view('laporan.laporan_menurut_tahun_periode');\n					// return view('laporan.laporan_menurut_jenis_skpd_tahun');\n					PDF::writeHTML($table, true, false, false, false, '');\n					\n					\n					// $header=view('laporan.header');\n					// 	PDF::SetFont('helvetica', '', 12);\n					// 	PDF::writeHTML($header, true, false, false, false, '');\n					// $isi=view('laporan.isi');\n					// 	PDF::SetFont('helvetica', '', 8);\n					// 	PDF::writeHTML($isi, true, false, false, false, '');\n					// $foot=view('laporan.foot');\n					// 	PDF::SetFont('helvetica', '', 8);\n					// 	PDF::writeHTML($foot, true, false, false, false, '');\n\n					// PDF::Output('hello_world.pdf');\n					PDF::Output($view_laporan[$jenis]);\n					\n				}]);\n			\n				function lapgrid($view='')\n				{\n					return view('laporan.grid.'.$view);\n				}\n				Route::group(['prefix' => 'lap_preview'], function()\n				{	\n					Route::get('grid/{grid}', ['as'=>'lap.prev.grid',function($grid)\n						{	\n							// return $grid;\n								return  lapgrid($grid);\n						}]);\n\n					Route::any('data/{data}',['as'=>'lap.prev.data', function(Request $req,$data)\n						{\n							$lap=new Laporan($req);\n							return $lap->$data();\n							\n						}]);\n					Route::any('tahun', ['as'=>'tahun',function()\n					{\n						$tahun=array();\n						$key=0;\n						for ($i=1970; $i <= 2050  ; $i++) { \n							$tahun[$key]['id']=$i;\n							$tahun[$key]['textXX']=$i.' ';\n							// $tahun[$key]['textXXggg']=$i;\n							$key++;\n						}\n						return $tahun;\n\n					}]);\n				  \n				});\n		});\n\n}\n\n\n//  Route::get('/', array('as' => 'home', function()\n// {\n//     return View::make('home');\n// }))\n\n\n\n\nRoute::get('lap/{jenis}', function ($jenis='1')\n{\n	// $lap1=Dokumens::count('tahun')->groupBy('tahun')->get()->toArray();\n	// dd($lap1);\n	if ($jenis==1) {\n		$users = DB::table('dokumen')\n		                     ->select(DB::raw('tahun, count(dokumen.tahun) as jumlah, SUM(dokumen.spm_benar) as spm'))\n		                     // ->where('status', '<>', 1)\n		                     ->groupBy('tahun')\n		                     ->get();\n	    dd($users);\n	}\n	if ($jenis==2) {\n		// $users = Jenissppd::with('dokumens')->get();\n	    // dd($users);\n	    $users = DB::table('dokumen')\n		                     ->select(DB::raw('tahun, count(dokumen.tahun) as jumlah, SUM(dokumen.spm_benar) as spm, jenis_sppd_id'))\n		                     // ->where('status', '<>', 1)\n		                     ->groupBy('jenis_sppd_id')\n		                     ->get();\n	    dd($users);\n		\n		               \n	}\n	if ($jenis==3) {\n		// $users = Jenissppd::with('dokumens')->get();\n	    // dd($users);\n	    $users = DB::table('dokumen')\n		                     ->select(DB::raw('dokumen.tahun,\n								Count(dokumen.no_sppd) AS SPM_jumlah,\n								Sum(dokumen.spm_diajukan) AS SPM_NILAI,\n								Sum(dokumen.potongan) AS SPM_POTONGAN,\n								Count(dokumen.no_sppd) AS SPPD_JUMLAH,\n								Count(dokumen.spm_benar) AS SPPD_NILAI,\n								dokumen.no_sppd,\n								dokumen.keterangan'\n								))\n		                     ->where('tahun', '=', 2010)\n		                     ->groupBy('skpd_id')\n		                     ->get();\n	    dd($users);\n		\n		               \n	}\n	if ($jenis==4) {\n		// $users = Jenissppd::with('dokumens')->get();\n	    // dd($users);\n	    $users = DB::table('dokumen')\n		                     ->select(DB::raw(\n		                     	'dokumen.tahun,\n									Count(dokumen.no_sppd) AS SPM_jumlah,\n									Sum(dokumen.spm_diajukan) AS SPM_NILAI,\n									Sum(dokumen.potongan) AS SPM_POTONGAN,\n									Count(dokumen.no_sppd) AS SPPD_JUMLAH,\n									Sum(dokumen.spm_benar) AS SPPD_NILAI,\n									dokumen.no_sppd,\n									dokumen.keterangan'\n								))\n		                     ->where('tahun', '=', 2010)\n		                     ->where('skpd_id', '=', 2)\n		                     ->groupBy('jenis_sppd_id')\n		                     ->get();\n	    dd($users);\n		\n		               \n	}\n	$users = DB::table('users')->count();\n	\n	$price = DB::table('orders')->max('price');\n\n});\n \n Route::group(['namespace' => 'extend\\sentinel'], function(){\n\n        Route::get('profile/editPass', ['as' => 'ExtendProfile.editPass.edit', 'uses' => 'ProfileController@editPass']);\n    Route::post('profile/password', ['as' => 'sentinel.profile.password', 'uses' => 'ProfileController@changePasswordX']);\n    Route::put('profile', ['as' => 'sentinel.profile.update', 'uses' => 'ProfileController@updateX']);\n\n\n        \n        Route::any('users/data', ['as' => 'ExtendUser.users.data', 'uses' => 'UserController@getUsers']);\n    Route::put('users/{hash}', ['as' => 'sentinel.users.update', 'uses' => 'UserController@updateX']);\n    Route::post('users', ['as' => 'sentinel.users.store', 'uses' => 'UserController@storeX']);\n\n\n\n\n        Route::any('groups/data', ['as' => 'ExtendGroup.groups.data', 'uses' => 'GroupController@getGroups']);\n    Route::post('groups', ['as' => 'sentinel.groups.store', 'uses' => 'GroupController@storeX']);\n        Route::any('groups/{hash}/edit-permission', ['as' => 'ExtendGroup.groups.editpermission', 'uses' => 'GroupController@EditPermission']);\n        Route::any('groups/{hash}/CUP', ['as' => 'ExtendGroup.groups.CUP', 'uses' => 'GroupController@CreateUpdatePermission']);\n\n});",
+			"file": "app/Http/routes.php",
+			"file_size": 34764,
+			"file_write_time": 130870387715724511,
+			"settings":
+			{
+				"buffer_size": 34768,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "myhelper/myhelper.php",
+			"settings":
+			{
+				"buffer_size": 726,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/easy/content/eds.blade.php",
+			"settings":
+			{
+				"buffer_size": 23134,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Providers/AppServiceProvider.php",
+			"settings":
+			{
+				"buffer_size": 1027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/DokumensController.php",
+			"settings":
+			{
+				"buffer_size": 28036,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/lang/id/validation.php",
+			"settings":
+			{
+				"buffer_size": 5952,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/lang/en/validation.php",
+			"settings":
+			{
+				"buffer_size": 5697,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:dis",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 520.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by achmadi) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Middleware",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Providers",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/lang",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/lang/en",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/lang/id"
+	],
+	"file_history":
+	[
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Dokumens.php",
+		"/F/xampp 5.6.11/htdocs/tcpdf/fonts/dejavusans.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/myhelper/myhelper.php",
+		"/F/xampp 5.6.11/htdocs/tcpdf/fonts/msungstdlight.php",
+		"/F/xampp 5.6.11/htdocs/tcpdf/LICENSE.TXT",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/duk.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Penerima.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Providers/RouteServiceProvider.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/routes.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/SkpdCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/SkpdUpdateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/PenerimaController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/DokumensCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/barryvdh/laravel-debugbar/src/ServiceProvider.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/lds.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/event-dispatcher/EventDispatcher.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/bootstrap/environment.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpspec/phpspec/features/matchers/developer_uses_array_key_matcher.feature",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/JenisSppdUpdateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/config/app.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/lang/en/validation.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/JenissppdController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/FileController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/DokumensController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/JenisSppdCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/GroupCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/SkpdController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/server.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/lang/id/validation.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/DokumensUpdateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/layout/footer.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpunit/phpunit/tests/TextUI/filter-dataprovider-by-only-range.phpt",
+		"/F/xampp 5.6.11/htdocs/tcpdf/fonts/freemono.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/hamcrest/hamcrest-php/generator/parts/functions_imports.txt",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Config/FileLocator.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/league/flysystem/src/FileExistsException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Exception/UnauthorizedHttpException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Log/DebugLoggerInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/process/Exception/LogicException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/DataCollector/LateDataCollectorInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Session/EncryptedStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/mitulgolakiya/laravel-api-generator/templates/scaffold/requests/UpdateRequest.stub",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/user pas",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Controllers/UnitkerjaController.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Skpd.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/PenerimaUpdateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/PenerimaCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/penerima.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpoffice/phpexcel/Examples/data/continents/North America.txt",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/css-selector/Node/PseudoNode.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/league/flysystem/src/Plugin/PluginNotFoundException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/nikic/php-parser/lib/PhpParser/NodeVisitor/NameResolver.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app - BACKUP/Penerima.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app - Copy/Penerima.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/process/PhpExecutableFinder.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/package.json",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Jenissppd.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/UnitKerjaCreateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/UnitKerjaUpdateRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/FormRequests/ResetPasswordRequest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/config/session.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/home.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/layout/master.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/eds.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/artisan",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/composer/autoload_psr4.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/bootstrap/app.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources - Copy (6)/views/easy/content/lds.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/.env",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/.production.env",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/.demo.env",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/.dev.env",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/public/asset/app.js",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/layout/header.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/yaml/Tests/Fixtures/sfMergeKey.yml",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Unitkerja.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/psy/psysh/src/Psy/Exception/ParseErrorException.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/psy/psysh/src/Psy/CodeCleaner/ImplicitReturnPass.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpoffice/phpexcel/unitTests/rawTestData/Calculation/Engineering/BESSELI.data",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/hamcrest/hamcrest-php/tests/Hamcrest/Number/IsCloseToTest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpspec/phpspec/features/matchers/developer_uses_comparison_matcher.feature",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/rydurham - integrasi/sentinel/src/views/blank/emails/reset.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/rydurham - integrasi/sentinel/src/views/blank/users/register.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/psr/http-message/src/UriInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/routing/Tests/RouteTest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/HttpCache/Store.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Session/Store.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/content/ds.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/Http/Kernel.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/app/File.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/easy/layout/app.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/resources/views/laporan/foot.blade.php",
+		"/C/Users/idea centre/AppData/Local/Temp/Rar$DI07.453/eds.blade.php",
+		"/C/Users/idea centre/AppData/Local/Temp/Rar$DI01.484/eds.blade.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/HttpCache/Store.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/css-selector/Parser/Tokenizer/TokenizerEscaping.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Profiler/RedisProfilerStorage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Profiler/MysqlProfilerStorage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/security-core/Symfony/Component/Security/Core/Authentication/Token/Storage/TokenStorage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Profiler/FileProfilerStorage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-foundation/Session/Storage/SessionStorageInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Profiler/ProfilerStorageInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Profiler/PdoProfilerStorage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/css-selector/Parser/Tokenizer/Tokenizer.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/sebastian/global-state/src/Restorer.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpunit/php-code-coverage/tests/_files/source_without_ignore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/phpunit/php-code-coverage/tests/_files/source_with_ignore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/Tests/HttpCache/StoreTest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Support/Facades/Storage.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Symfony/Component/HttpKernel/HttpCache/StoreInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/Tests/HttpCache/StoreTest.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/symfony/http-kernel/HttpCache/StoreInterface.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laracasts/flash/src/Laracasts/Flash/LaravelSessionStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/WinCacheStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/MemcachedStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/TaggableStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laracasts/flash/src/Laracasts/Flash/SessionStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/XCacheStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/ArrayStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/NullStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/FileStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Cache/ApcStore.php",
+		"/F/xampp 5.6.11/htdocs/sppd-migrasi/vendor/laravel/framework/src/Illuminate/Contracts/Cache/Store.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"F:\\xampp 5.6.11\\htdocs\\sppd-migrasi",
+			"F:\\xampp 5.6.11\\htdocs\\sppd-dev\\config",
+			"F:\\xampp 5.6.11\\htdocs\\sppd-dev\\resources\\views",
+			"F:\\xampp 5.6.11\\htdocs\\integrasi"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"date_string_id",
+			"onment(",
+			"');\n",
+			"update",
+			"<",
+			"update",
+			" // date",
+			"ini",
+			"n",
+			"toArray",
+			"']",
+			"['",
+			"ronment()==",
+			"{\n",
+			"base64_encode",
+			"=>",
+			"dash",
+			"tgl_",
+			"_id",
+			"id",
+			"JenisSppd",
+			"PenerimaCreateRequest",
+			"JenisSppd",
+			" =>",
+			"$tanggal",
+			"skpd_id",
+			"filter_skpd",
+			"skpd_",
+			"combobox",
+			"enter",
+			"dex_highest",
+			"hight",
+			"higest",
+			"DEMO",
+			"order",
+			"<?",
+			"isObjectEmpty",
+			"DUK-easyui-link",
+			"DUK-easyui-tabs",
+			"easyui-layout",
+			"DUK-easyui-layout",
+			"window",
+			"windowA",
+			"){\n",
+			"windowA",
+			"TambahDokSPPD",
+			"combobox",
+			"modal",
+			"modal:false",
+			"disabled",
+			"disable",
+			"AksiKoreksi",
+			"koreksi",
+			"Tambah",
+			"WINDOWHELPER",
+			"mylayout",
+			"easyui-tab",
+			"easyui-linkbutton",
+			"easyui-layout",
+			"mylayout",
+			"easyui-tabs",
+			"easyui-linkbutton",
+			"DUK-easyui-layout",
+			"easyui-layout",
+			"combobox",
+			"easyui-combobox",
+			"TambahDokSPPD",
+			"tAMBAH",
+			"combobox",
+			"F_skpd_id",
+			"filter_skpd",
+			"F_skpd_id",
+			"duk{{",
+			"DUK-easyui-tabs",
+			"easyui-tabs",
+			"easyui-linkbutton",
+			"easyui-layout",
+			"easyui-linkbutton",
+			".easyui-layout",
+			"F_skpd_id",
+			"filter_skpd",
+			"dow().window('cle",
+			"koreksi",
+			"Tambah",
+			"windowhelper",
+			"wind",
+			"myKeyHandler",
+			"serializeObject",
+			"ReloadButton",
+			"combogrid",
+			"penerima_id",
+			"ajax",
+			"windowHelper",
+			"LihatDokumen",
+			"//",
+			"refresh",
+			"Refresh",
+			"move",
+			"delete",
+			"lokasi_tujuan",
+			"clear",
+			"key",
+			"initForFormEDS",
+			"clear",
+			"F_skpd_id",
+			"filter_skpd",
+			"easyui-combobox",
+			"combobox",
+			"combo",
+			"contentCenter",
+			"clear",
+			"content-x",
+			"find",
+			"easyui-combobox",
+			"skpd_id-x",
+			"combobox",
+			"jenis_sppd_id-x",
+			"penerima_id-x",
+			"skpd_id-x",
+			"rel",
+			"reL",
+			"Rel",
+			"rel",
+			"Rel",
+			"rel",
+			"skpd_id-x",
+			"jenis_sppd_id-x",
+			"skpd_id-x"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/FormRequests/DokumensUpdateRequest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1778,
+								660
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 248.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/easy/content/lds.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27700,
+								27700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11058.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Middleware/SentryAdminAccess.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2031,
+								2031
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/FormRequests/DokumensCreateRequest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								613,
+								614
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15298,
+								15298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5472.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "myhelper/myhelper.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								305,
+								305
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/views/easy/content/eds.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23134,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21979,
+								21985
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7998.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Providers/AppServiceProvider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								878,
+								878
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Http/Controllers/DokumensController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24712,
+								24712
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8397.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "resources/lang/id/validation.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3514,
+								3514
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "resources/lang/en/validation.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5697,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5033,
+								5033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1309.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"project": "sppd-migrasi.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"dokuup",
+				"sppd-migrasi\\app\\FormRequests\\DokumensUpdateRequest.php"
+			],
+			[
+				"",
+				"sppd-migrasi\\app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"my",
+				"sppd-migrasi\\myhelper\\myhelper.php"
+			],
+			[
+				"myhe",
+				"sppd-migrasi\\myhelper\\myhelper.php"
+			],
+			[
+				"myhel",
+				"sppd-migrasi\\myhelper\\myhelper.php"
+			],
+			[
+				"route",
+				"sppd-migrasi\\app\\Http\\routes.php"
+			],
+			[
+				"dokumencon",
+				"sppd-migrasi\\app\\Http\\Controllers\\DokumensController.php"
+			],
+			[
+				"lds.",
+				"sppd-migrasi\\resources\\views\\easy\\content\\lds.blade.php"
+			],
+			[
+				"routes",
+				"sppd-migrasi\\app\\Providers\\RouteServiceProvider.php"
+			],
+			[
+				"lds.blade",
+				"sppd-migrasi\\resources\\views\\easy\\content\\lds.blade.php"
+			],
+			[
+				"eds.b",
+				"sppd-migrasi\\resources\\views\\easy\\content\\eds.blade.php"
+			],
+			[
+				"duk.bla",
+				"sppd-migrasi\\resources\\views\\easy\\content\\duk.blade.php"
+			],
+			[
+				"skpdcon",
+				"sppd-migrasi\\app\\Http\\Controllers\\SkpdController.php"
+			],
+			[
+				"footer.",
+				"sppd-migrasi\\resources\\views\\easy\\layout\\footer.blade.php"
+			],
+			[
+				"dokuuup",
+				"sppd-migrasi\\app\\FormRequests\\DokumensUpdateRequest.php"
+			],
+			[
+				"filecon",
+				"sppd-migrasi\\app\\Http\\Controllers\\FileController.php"
+			],
+			[
+				"dokucon",
+				"sppd-migrasi\\app\\Http\\Controllers\\DokumensController.php"
+			],
+			[
+				"update",
+				"sppd-migrasi\\vendor\\mitulgolakiya\\laravel-api-generator\\templates\\scaffold\\requests\\UpdateRequest.stub"
+			],
+			[
+				"dokum.php",
+				"sppd-migrasi\\app\\Dokumens.php"
+			],
+			[
+				"penericrea",
+				"sppd-migrasi\\app\\FormRequests\\PenerimaCreateRequest.php"
+			],
+			[
+				"upda",
+				"sppd-migrasi\\vendor\\mitulgolakiya\\laravel-api-generator\\templates\\scaffold\\requests\\UpdateRequest.stub"
+			],
+			[
+				"penericon",
+				"sppd-migrasi\\app\\Http\\Controllers\\PenerimaController.php"
+			],
+			[
+				"peneriupda",
+				"sppd-migrasi\\app\\FormRequests\\PenerimaUpdateRequest.php"
+			],
+			[
+				"penerima.",
+				"sppd-migrasi\\app\\Penerima.php"
+			],
+			[
+				"skpdupd",
+				"sppd-migrasi\\app\\FormRequests\\SkpdUpdateRequest.php"
+			],
+			[
+				"jeniscon",
+				"sppd-migrasi\\app\\Http\\Controllers\\JenissppdController.php"
+			],
+			[
+				"duk",
+				"sppd-migrasi\\resources\\views\\easy\\content\\duk.blade.php"
+			],
+			[
+				"skpcon",
+				"sppd-migrasi\\app\\Http\\Controllers\\SkpdController.php"
+			],
+			[
+				"unitcon",
+				"sppd-migrasi\\app\\Http\\Controllers\\UnitkerjaController.php"
+			],
+			[
+				"penerima",
+				"sppd-migrasi\\resources\\views\\easy\\content\\penerima.blade.php"
+			],
+			[
+				"pener.blad",
+				"sppd-migrasi\\resources\\views\\easy\\content\\penerima.blade.php"
+			],
+			[
+				"duk.blad",
+				"sppd-migrasi\\resources\\views\\easy\\content\\duk.blade.php"
+			],
+			[
+				"penerima.blade",
+				"sppd-migrasi\\resources\\views\\easy\\content\\penerima.blade.php"
+			],
+			[
+				"footer",
+				"sppd-migrasi\\resources\\views\\easy\\layout\\footer.blade.php"
+			],
+			[
+				"lds.b",
+				"sppd-migrasi\\resources\\views\\easy\\content\\lds.blade.php"
+			],
+			[
+				"rotu",
+				"sppd-migrasi\\app\\Http\\routes.php"
+			],
+			[
+				"dokumecon",
+				"sppd-migrasi\\app\\Http\\Controllers\\DokumensController.php"
+			],
+			[
+				"store.php",
+				"sppd-migrasi\\vendor\\symfony\\http-kernel\\Symfony\\Component\\HttpKernel\\HttpCache\\Store.php"
+			],
+			[
+				"store",
+				"sppd-migrasi\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Store.php"
+			],
+			[
+				"/foundation/http/middleware/verifycsrftoken.",
+				"sppd-migrasi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"illuminate/foundation/http/middleware/verifycsrftoken",
+				"sppd-migrasi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"verifycsrftoken.php",
+				"sppd-migrasi\\app\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"dokue",
+				"sppd-migrasi\\app\\Dokumens.php"
+			],
+			[
+				"filecontroller",
+				"sppd-migrasi\\app\\Http\\Controllers\\FileController.php"
+			],
+			[
+				"documencontro",
+				"sppd-migrasi\\app\\Http\\Controllers\\DokumensController.php"
+			],
+			[
+				"eds.blad",
+				"sppd-migrasi\\resources\\views\\easy\\content\\eds.blade.php"
+			],
+			[
+				"lds",
+				"sppd-dev\\resources\\views\\easy\\content\\lds.blade.php"
+			],
+			[
+				"eds.",
+				"sppd-dev\\resources\\views\\easy\\content\\eds.blade.php"
+			],
+			[
+				"senti/user/cre",
+				"sppd-dev\\resources\\views\\sentinel\\users\\create.blade.php"
+			],
+			[
+				"lds.bl",
+				"sppd-dev\\resources\\views\\easy\\content\\lds.blade.php"
+			],
+			[
+				"rou",
+				"sppd-dev\\app\\Http\\routes.php"
+			],
+			[
+				"duk.",
+				"sppd-dev\\resources\\views\\easy\\content\\duk.blade.php"
+			],
+			[
+				"dokuecon",
+				"sppd-dev\\app\\Http\\Controllers\\DokumensController.php"
+			],
+			[
+				"do",
+				"sppd-dev\\app\\Dokumens.php"
+			],
+			[
+				"config/filesystems.php",
+				"sppd-dev\\config\\filesystems.php"
+			],
+			[
+				"sentry.",
+				"sppd-dev\\config\\sentry.php"
+			],
+			[
+				"laporan_menurut_tahun_periode",
+				"sppd-dev\\resources\\views\\laporan\\laporan_menurut_tahun_periode.blade.php"
+			],
+			[
+				"laporan_menurut_jenis_skpd_tahun",
+				"sppd-dev\\resources\\views\\laporan\\laporan_menurut_jenis_skpd_tahun.blade.php"
+			],
+			[
+				"rout",
+				"app\\Http\\routes.php"
+			],
+			[
+				"routecollection.php",
+				"sppd-dev\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php"
+			],
+			[
+				"doku",
+				"sppd-dev\\app\\Dokumens.php"
+			],
+			[
+				"sppdcon",
+				"app\\Http\\Controllers\\JenissppdController.php"
+			],
+			[
+				"usercon",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\UserController.php"
+			],
+			[
+				"listaksesx",
+				"integrasi\\resources\\views\\sentinel\\groups\\listAksesx.blade.php"
+			],
+			[
+				"resultdb",
+				"integrasi\\app\\Http\\Controllers\\ResultDBController.php"
+			],
+			[
+				"excel",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"sentinel/routes",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\routes.php"
+			],
+			[
+				"log",
+				"integrasi\\app\\Http\\Controllers\\LogController.php"
+			],
+			[
+				"sentryadmin",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Middleware\\SentryAdminAccess.php"
+			],
+			[
+				"seasy/app",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"/",
+				"integrasi\\resources\\views\\sentinel\\users\\edit.blade.php"
+			],
+			[
+				"easyn/a",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"sentinerotue",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\routes.php"
+			],
+			[
+				"sentiroutes",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\routes.php"
+			],
+			[
+				"senti/routes",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\routes.php"
+			],
+			[
+				"excon",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"groupcontroller",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\GroupController.php"
+			],
+			[
+				"senroute",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\routes.php"
+			],
+			[
+				"easyapp",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"app/my",
+				"integrasi\\app\\MyProvider.php"
+			],
+			[
+				"sentinel/repositories/group/sentrygrouprepository",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Repositories\\Group\\SentryGroupRepository.php"
+			],
+			[
+				"groucon",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\GroupController.php"
+			],
+			[
+				"lise",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"easynapp",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"listexce",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"excecon",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"usercontroller",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\UserController.php"
+			],
+			[
+				"easapp",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"listex",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"listgrid",
+				"integrasi\\resources\\views\\easyN\\ListGrid.blade.php"
+			],
+			[
+				"logcon",
+				"integrasi\\app\\Http\\Controllers\\LogController.php"
+			],
+			[
+				"easyn/app",
+				"integrasi\\resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"roue",
+				"integrasi\\app\\Http\\routes.php"
+			],
+			[
+				"listdbresulted",
+				"integrasi\\resources\\views\\easyN\\ListDbResulted.blade.php"
+			],
+			[
+				"red",
+				"integrasi\\app\\Http\\Controllers\\ResultDBController.php"
+			],
+			[
+				"exccon",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"sentryac",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Middleware\\SentryAdminAccess.php"
+			],
+			[
+				"formuploadexcel",
+				"integrasi\\resources\\views\\easyN\\FormUploadExcel.blade.php"
+			],
+			[
+				"excec",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"lisex",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"arr",
+				"integrasi\\config\\arrayactions.php"
+			],
+			[
+				"tab",
+				"integrasi\\config\\tables.php"
+			],
+			[
+				"sesntryac",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Middleware\\SentryAdminAccess.php"
+			],
+			[
+				"akse",
+				"integrasi\\app\\Akses.php"
+			],
+			[
+				"table",
+				"integrasi\\config\\tables.php"
+			],
+			[
+				"sentine/gro/in",
+				"integrasi\\resources\\views\\sentinel\\groups\\index.blade.php"
+			],
+			[
+				"grocon",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\GroupController.php"
+			],
+			[
+				"sentry",
+				"integrasi\\vendor\\cartalyst\\sentry\\src\\Cartalyst\\Sentry\\Sentry.php"
+			],
+			[
+				"sentinelgrouprepositoryinterface",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Repositories\\Group\\SentinelGroupRepositoryInterface.php"
+			],
+			[
+				"sentineser",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\SentinelServiceProvider.php"
+			],
+			[
+				"app/group",
+				"integrasi\\app\\Group.php"
+			],
+			[
+				"sentry.php",
+				"integrasi\\config\\sentry.php"
+			],
+			[
+				"sentrygrouprepository.php",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\Repositories\\Group\\SentryGroupRepository.php"
+			],
+			[
+				"sentinepro",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\Sentinel\\SentinelServiceProvider.php"
+			],
+			[
+				"gorucon",
+				"integrasi\\vendor\\rydurham\\sentinel\\src\\controllers\\GroupController.php"
+			],
+			[
+				"resul",
+				"integrasi\\app\\Http\\Controllers\\ResultDBController.php"
+			],
+			[
+				"excelco",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"array",
+				"integrasi\\config\\arrayactions.php"
+			],
+			[
+				"listexcel",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"listup",
+				"integrasi\\resources\\views\\easyN\\ListUploaded.blade.php"
+			],
+			[
+				"arra",
+				"integrasi\\config\\arrayactions.php"
+			],
+			[
+				"arrac",
+				"integrasi\\vendor\\sebastian\\comparator\\src\\ArrayComparator.php"
+			],
+			[
+				"listexceluploaded",
+				"integrasi\\resources\\views\\easyN\\ListExcelUploaded.blade.php"
+			],
+			[
+				"exportdbgrid",
+				"integrasi\\resources\\views\\easyN\\ExportDbGrid.blade.php"
+			],
+			[
+				"excelcon",
+				"integrasi\\app\\Http\\Controllers\\ExcelController.php"
+			],
+			[
+				"ro",
+				"app\\Http\\routes.php"
+			],
+			[
+				"app.blade",
+				"resources\\views\\easyN\\app.blade.php"
+			],
+			[
+				"easyui.app",
+				"resources\\views\\easyui\\app.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

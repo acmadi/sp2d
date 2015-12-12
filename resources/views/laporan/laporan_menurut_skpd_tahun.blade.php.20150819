@@ -1,0 +1,183 @@
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:20px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:20px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-by3v{font-weight:bold;font-size:14px;text-align:center}
+.tg .tg-e3zv{font-weight:bold}
+.tg .tg-hgcj{font-weight:bold;text-align:center}
+
+
+
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-by3v" colspan="9">PEMERINTAH KOTA MOJOKERTO</th>
+  </tr>
+  <tr>
+    <td class="tg-by3v" colspan="9">JUMLAH SP2D MENURUT JENISNYA <br></td>
+  </tr>
+  <tr>
+    <td class="tg-by3v" colspan="9">NAMA SKPD : …..,TAHUN : …….</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv" rowspan="2">NO</td>
+    <td class="tg-e3zv" rowspan="2">NAMA SKPD<br></td>
+    <td class="tg-hgcj" colspan="3">SPM</td>
+    <td class="tg-hgcj" colspan="2">SP2D</td>
+    <td class="tg-hgcj" rowspan="2">KETERANGAN</td>
+    <td class="tg-031e"><br></td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">JUMLAH</td>
+    <td class="tg-e3zv">NILAI<br></td>
+    <td class="tg-e3zv">POTONGAN</td>
+    <td class="tg-e3zv">JUMLAH <br></td>
+    <td class="tg-e3zv">NILAI</td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-hgcj">1</td>
+    <td class="tg-hgcj">2</td>
+    <td class="tg-hgcj">3</td>
+    <td class="tg-hgcj">4</td>
+    <td class="tg-hgcj">5</td>
+    <td class="tg-hgcj">6</td>
+    <td class="tg-hgcj">7</td>
+    <td class="tg-hgcj">8</td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">1<br></td>
+    <td class="tg-031e"><br></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-e3zv">JUMLAH</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e" colspan="9">Keterangan :<br>,*) Diisi,Nama SKPD yang dipilih,<br>**) Diisi,tahun data SP2D yang ditampilkan,<br>1,Diisi nomor urut,<br>2 Diisi,jenis SP2D (hanya ada 4 jenis),<br>3 Diisi,jumlah SPM yang diajukan,<br>4 Diisi,jumlah nilai uang pada,SPM yang,diajukan,<br>5 Diisi,jumlah nilai potongan pada SPM yang diajukan,<br>6 Diisi,jumlah SP2D yang diterbitkan,<br>7 Diisi,jumlah nilai uang pada,SP2D yang,diterbitkan,<br>8 Diisi,jumlah SP2D yang terlambat diterbitkan dengan tulisan (… SP2D Terlambat)</td>
+  </tr>
+</table>
+
+{{-- ============================================================================================== --}}
+<table>
+  <tr>
+    <th colspan="9">PEMERINTAH KOTA MOJOKERTO</th>
+  </tr>
+  <tr>
+    <td colspan="9">JUMLAH SP2D MENURUT JENISNYA <br></td>
+  </tr>
+  <tr>
+    <td colspan="9">NAMA SKPD : …..,TAHUN : …….</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">NO</td>
+    <td rowspan="2">NAMA SKPD<br></td>
+    <td colspan="3">SPM</td>
+    <td colspan="2">SP2D</td>
+    <td rowspan="2">KETERANGAN</td>
+    <td><br></td>
+  </tr>
+  <tr>
+    <td>JUMLAH</td>
+    <td>NILAI<br></td>
+    <td>POTONGAN</td>
+    <td>JUMLAH <br></td>
+    <td>NILAI</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>1<br></td>
+    <td><br></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>JUMLAH</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="9">Keterangan :<br>,*) Diisi,Nama SKPD yang dipilih,<br>**) Diisi,tahun data SP2D yang ditampilkan,<br>1,Diisi nomor urut,<br>2 Diisi,jenis SP2D (hanya ada 4 jenis),<br>3 Diisi,jumlah SPM yang diajukan,<br>4 Diisi,jumlah nilai uang pada,SPM yang,diajukan,<br>5 Diisi,jumlah nilai potongan pada SPM yang diajukan,<br>6 Diisi,jumlah SP2D yang diterbitkan,<br>7 Diisi,jumlah nilai uang pada,SP2D yang,diterbitkan,<br>8 Diisi,jumlah SP2D yang terlambat diterbitkan dengan tulisan (… SP2D Terlambat)</td>
+  </tr>
+</table>

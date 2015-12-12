@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "F:\\xampp 5.6.11\\htdocs\\tcpdf"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}
